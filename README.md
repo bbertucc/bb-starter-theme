@@ -1,4 +1,4 @@
-# Segment WordPress Starter Theme
+# A WordPress Starter Theme, Made for Segments
 
 This open repo contains my WordPress starter theme. This theme includes many of the standards that I've developed after 10+ developing websites. 
 
