@@ -1,11 +1,4 @@
 <?php
-//Add Google API 
-function decubing_acf_google_map_api( $api ){
-	$api['key'] = 'AIzaSyBekoSVXQxTDFrLifAGwzl80VllFSsZa14';
-	return $api;	
-}
-add_filter('acf/fields/google_map/api', 'decubing_acf_google_map_api');
-
 //Add ACF Page Content
 if( function_exists('acf_add_local_field_group') ):
 
