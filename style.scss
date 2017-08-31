@@ -1,0 +1,54 @@
+/*!
+Theme Name: Blake's Starter Theme
+Theme URI: hhttps://github.com/bbertucc
+Author: Blake Bertuccellli
+Author URI: https://github.com/bbertucc
+Description: Starter theme made ready for ACF segments.
+Version: 0.0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: Bb
+Tags:
+*/
+
+/*--------------------------------------------------------------
+# Standard Variables
+--------------------------------------------------------------*/
+@import "styles/standards";
+
+/*--------------------------------------------------------------
+# Fonts
+--------------------------------------------------------------*/
+@import "styles/fonts/font-awesome/scss/font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:700,700i');
+@import url('https://fonts.googleapis.com/css?family=Permanent+Marker');
+
+/*--------------------------------------------------------------
+# Mixins
+--------------------------------------------------------------*/
+@import "styles/mixins/backgrounds";
+@import "styles/mixins/buttons";
+@import "styles/mixins/responsive";
+
+/*--------------------------------------------------------------
+# Template Parts
+--------------------------------------------------------------*/
+@import "styles/template_parts/features";
+@import "styles/template_parts/footer";
+@import "styles/template_parts/header";
+@import "styles/template_parts/layouts";
+@import "styles/template_parts/loop_content";
+@import "styles/template_parts/media";
+@import "styles/template_parts/segments";
+
+/*--------------------------------------------------------------
+# Additional Elements: Plugin Styles, Includes, Header, .. etc.
+--------------------------------------------------------------*/
+@import "styles/etc/includes";
+@import "styles/etc/animate";
+@import "styles/etc/wordpress";
+
+/*--------------------------------------------------------------
+# Document Properties
+--------------------------------------------------------------*/
+@import "styles/document";

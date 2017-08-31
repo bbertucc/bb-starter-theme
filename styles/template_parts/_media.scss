@@ -1,0 +1,118 @@
+/*--------------------------------------------------------------
+# Media elements that are within loop content.
+--------------------------------------------------------------*/
+
+//Slideshow
+.media-slideshow{
+}
+
+//Grid
+.media-grid{
+}
+
+//Portrait and Landscape
+.media-portrait_and_landscape{
+  display: flex;
+  flex-wrap: wrap;
+  
+  //Landscape and Portrait (all)
+  .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait,
+  .portrait_and_landscape-left_portrait, .portrait_and_landscape-right_portrait{
+    position: relative;    
+    padding-bottom: 44%;
+
+    //Image
+    .landscape_with_right_portrait-image, .landscape_with_left_portrait-image,
+    .left_portrait-image, .right_portrait-image{
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      .image-the_image{
+        min-width: 100%;
+        min-height: 100%;
+        height: auto;    
+      }
+    }
+    
+  }
+  
+  //Landscape (All)
+  .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait{
+    width: 69%;
+
+    //Image
+    .landscape_with_right_portrait-image, .landscape_with_left_portrait-image{
+      .image-the_image{
+        
+      }
+    }
+    
+  }
+  
+  //Landscape (Portrait Right)
+  .portrait_and_landscape-landscape_with_right_portrait{
+    margin-right: 1%;
+
+    //Image
+    .landscape_with_right_portrait-image{
+      .image-the_image{
+        
+      }
+    }
+    
+  }
+  
+  //Landscape (Portrait Left)
+  .portrait_and_landscape-landscape_with_left_portrait{
+    order: 2;
+    margin-left: 1%;
+    
+    //Image
+    .landscape_with_left_portrait-image{
+      .image-the_image{
+        
+      }
+    }
+    
+  }
+  
+  //Portrait (All)
+  .portrait_and_landscape-right_portrait, .portrait_and_landscape-left_portrait{
+    width: 30%;
+    
+    //Image
+    .right_portrait-image, .left_portrait-image{
+      .image-the_image{
+        
+      }
+    }
+    
+  }
+  
+  //Portrait (Right)
+  .portrait_and_landscape-right_portrait{
+
+    //Image
+    .right_portrait-image{
+      .image-the_image{
+        
+      }
+    }
+    
+  }
+  
+  //Portrait (Left)
+  .portrait_and_landscape-left_portrait{
+    order: 1;
+
+    //Image
+    .right_portrait-image{
+      .image-the_image{
+        
+      }
+    }
+
+  }
+  
+}

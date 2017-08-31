@@ -1,0 +1,15 @@
+@mixin background($type){
+  @if $type == "white" {
+    background-color: $color-white;
+  }
+  @if $type == "light_shade" {
+    background-color: $color-light_shade;
+  }
+  @if $type == "transparent" {
+    background-color: transparent;
+  }
+  @if $type == "image" {
+    background-position: center center;
+    background-size: cover;
+  }
+}

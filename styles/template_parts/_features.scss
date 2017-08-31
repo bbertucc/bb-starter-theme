@@ -1,0 +1,25 @@
+/*--------------------------------------------------------------
+# Features: Catch All Template Part
+--------------------------------------------------------------*/
+
+//Search Feature
+.feature-search{
+  
+  //Trigger
+  .search-trigger{
+    @include fa-icon();
+    &:before{
+      content: $fa-var-search
+    }
+  }
+  
+  //Form
+  .search-form{
+    display: none;
+  }
+  
+  //Results
+  .search-results{
+    display: none;
+  }
+}

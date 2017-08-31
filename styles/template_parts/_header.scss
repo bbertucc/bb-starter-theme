@@ -1,0 +1,36 @@
+//Header Styles
+.header {
+  .header-content{
+    
+    //Logo
+    .content-logo{
+      .logo-image{
+        
+      }
+    }
+    
+    //Navigation
+    .content-menu{
+      @media only screen and (max-width: $screen-smaller){
+        display: none;
+      }
+    }
+    
+    //Search Feature
+    .content-feature{
+      
+    }
+    
+    //Toggle
+    .content-toggle{
+      display: none;
+      @media only screen and (max-width: $screen-smaller){
+        display: block;
+      }
+      &:before{
+        @include fa-icon();
+        content: $fa-var-bars
+      }
+    }
+  }
+}

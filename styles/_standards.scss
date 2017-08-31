@@ -1,0 +1,60 @@
+/*--------------------------------------------------------------
+# Standard Variables & Document Properties
+--------------------------------------------------------------*/
+
+//Typeface Settings
+$font-family-standard: 'Ubuntu', sans-serif;
+$font-family-alternative: 'Permanent Marker', sans-serif;
+$font-FontAwesome: 'FontAwesome';
+$font-weight-bold: 700;
+$font-weight-standard: 400;
+
+//Item specific variables
+$line-height-standard: 1.4em;
+
+//Font Settings
+$font-standard_largest: $font-weight-bold 60px/1.4em $font-family-standard;
+$font-standard_larger: $font-weight-bold 40px/1.4em $font-family-standard;
+$font-standard: $font-weight-bold 30px/1.4em $font-family-standard;
+$font-standard_smaller: $font-weight-bold 20px/1.4em $font-family-standard;
+$font-standard_smallest: $font-weight-bold 16px/1.4em $font-family-standard;
+$font-alternative_largest: $font-weight-bold 60px/1.4em $font-family-alternative;
+$font-alternative_larger: $font-weight-bold 40px/1.4em $font-family-alternative;
+$font-alternative: $font-weight-bold 30px/1.4em $font-family-alternative;
+$font-alternative_smaller: $font-weight-bold 20px/1.4em $font-family-alternative;
+$font-alternative_smallest: $font-weight-bold 16px/1.4em $font-family-alternative;
+
+//Single Cell Settings
+$cell-largest: 84px; // Standard Font Size * Line Height
+$cell-larger: 63px; // Larger Font Size * Line Height
+$cell-standard: 42px; // Standard Font Size * Line Height
+$cell-smaller: 28px; // Standard Font Size * Line Height
+$cell-smallest: 14px; // Standard Font Size * Line Height
+
+//Screen Sizes
+$screen-smallest: $cell-smallest*24;
+$screen-smaller: $cell-smaller*24;
+$screen-standard: $cell-standard*24;
+$screen-larger: $cell-larger*24;
+$screen-largest: $cell-largest*24;
+
+//Colors
+$color-standard: #231F20;
+$color-alternate: rgb(42,152,211);
+$color-white: #ffffff;
+$color-light_shade: #EBEBEB;
+$color-dark_shade: rgb(109,110,112);
+$color-translucent: rgba(0, 0, 0, 0.15);
+$color-gradient: linear-gradient(rgb(42,168,211) 0%, rgb(48,158,211) 100%);
+
+//Shadows
+$box-shadow-smallest: 0px 1px 2px -1px $color-dark_shade;
+$box-shadow-smaller: 0px 1px 6px -1px $color-standard;
+$box-shadow-standard: 0px 1px 12px -1px $color-standard;
+$text-shadow-standard: 1px 1px 3px $color-dark_shade;
+
+//Border Settings
+$border-width-standard: 3px;
+$border-standard: $border-width-standard solid $color-translucent;
+$border-radius-standard: 999999999px; //A Huge Number to make sure rectangles stay rounded
+$border-radius-circle: 50%;

@@ -1,0 +1,197 @@
+/*--------------------------------------------------------------
+# Segment content that is within loop content.
+--------------------------------------------------------------*/
+
+//Background
+.segment-background{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  & > div{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+  }
+  
+  //Overlay
+  .background-overlay{
+    background: $color-translucent;
+    z-index: -1;
+  }
+  
+  //General Backgrounds  
+  .background-white, .background-light_shade, .background-image{
+    z-index: -2;
+  }
+  
+  //White
+  .background-white{
+    @include background('white');
+  }
+
+  //Light Shade
+  .background-light_shade{
+    @include background('light_shade');
+  }
+  
+  //Image
+  .background-image{
+    @include background('image');
+  }
+}
+
+//Info Box
+.segment-info_box{
+  
+  //Content
+  .info_box-content{
+
+    //Title
+    .content-title{
+    }
+    
+    //Body
+    .content-body{
+    }
+    
+  }
+
+}
+
+//Testimonials
+.segment-testimonials{
+  
+}
+
+//Callout
+.segment-callout{
+  display: table;
+  width: 100%;
+  
+  //Content (all sizes)
+  .callout-large_content, .callout-standard_content{
+    text-align: center;
+
+    //Title and Body
+    .large_content-title, .large_content-body, .standard_content-title, .standard_content-body{
+    }
+    
+    //Title
+    .large_content-title, .standard_content-title{
+    }
+    
+    //Body
+    .large_content-body, .standard_content-body{
+    } 
+  }
+  
+  //Content (large)
+  .callout-large_content{
+    height: 90vh;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  
+  //Content (standard)
+  .callout-standard_content{
+  }
+}
+
+
+//One Column
+.segment-one_column{
+  
+  //Text (All)
+  .one_column-brief_text, .one_column-regular_text, .one_column-long_text{
+    
+    //Title and Body
+    .brief_text-title, .regular_text-title, .long_text-title, .brief_text-body, .regular_text-body, .long_text-body{
+    }
+    
+    //Title
+    .brief_text-title, .regular_text-title, .long_text-title{
+    }
+    
+    //Body
+    .brief_text-body, .regular_text-body, .long_text-body{
+    }
+    
+  } 
+  
+  //Text (Brief)
+  .one_column-brief_text{
+  } 
+  
+  //Text (Regular)
+  .one_column-regular_text{
+  } 
+  
+  //Text (Long)
+  .one_column-long_text{
+  } 
+  
+  //Media
+  .one_column-media{
+  }
+  
+}
+
+//Two Column
+.segment-two_column{
+  
+  //Content (all)
+  .two_column-content_with_left_text, .two_column-content_with_right_text{
+    
+    //Text
+    .content_with_left_text-text, .content_with_right_text-text{
+      .text-title{
+      }
+      .text-body{
+      }
+    }
+    
+    //Media
+    .content_with_left_text-media, .content_with_right_text-media{
+    }
+    
+  }
+
+  //Content (Left Text)
+  .two_column-content_with_left_text{
+    
+    //Text
+    .content_with_left_text-text{
+      .text-title{
+      }
+      .text-body{
+      }
+    }
+    
+    //Media
+    .content_with_left_text-media{
+    
+    }
+    
+  }
+    
+  //Content (Right Text)
+  .two_column-content_with_right_text{
+    
+    //Text
+    .content_with_right_text-text{
+      .text-title{
+      }
+      .text-body{
+      }
+    }
+    
+    //Media
+    .content_with_right_text-media{
+    }
+    
+  }  
+}
+
+//Button
+.segment-button{
+}
