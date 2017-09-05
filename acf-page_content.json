@@ -1,7 +1,7 @@
 [
     {
         "key": "group_59a2f5fadcdec",
-        "title": "Page Content (copy)",
+        "title": "Page Content",
         "fields": [
             {
                 "key": "field_59a2f5fae3602",
@@ -558,6 +558,46 @@
                                 "mime_types": ""
                             },
                             {
+                                "key": "field_59aed42421c07",
+                                "label": "Image Focal Point",
+                                "name": "image_focal_point",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_59a2f5fb050f2",
+                                            "operator": "!=",
+                                            "value": ""
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "Center": "Center",
+                                    "Left Center": "Left Center",
+                                    "Right Center": "Right Center",
+                                    "Center Top": "Center Top",
+                                    "Left Top": "Left Top",
+                                    "Right Top": "Right Top",
+                                    "Center Bottom": "Center Bottom",
+                                    "Left Bottom": "Left Bottom",
+                                    "Right Bottom": "Right Bottom"
+                                },
+                                "default_value": [],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_59a2f5fb05117",
                                 "label": "Link URL",
                                 "name": "link_url",
@@ -727,6 +767,46 @@
                                 "mime_types": ""
                             },
                             {
+                                "key": "field_59aed3f521c06",
+                                "label": "Image Focal Point",
+                                "name": "image_focal_point",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_599f2de62617e",
+                                            "operator": "!=",
+                                            "value": ""
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "Center": "Center",
+                                    "Left Center": "Left Center",
+                                    "Right Center": "Right Center",
+                                    "Center Top": "Center Top",
+                                    "Left Top": "Left Top",
+                                    "Right Top": "Right Top",
+                                    "Center Bottom": "Center Bottom",
+                                    "Left Bottom": "Left Bottom",
+                                    "Right Bottom": "Right Bottom"
+                                },
+                                "default_value": [],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
                                 "key": "field_599f2de626183",
                                 "label": "Caption",
                                 "name": "caption",
@@ -868,6 +948,46 @@
                                 "max_height": "",
                                 "max_size": "",
                                 "mime_types": ""
+                            },
+                            {
+                                "key": "field_59aed3ca21c05",
+                                "label": "Image Focal Point",
+                                "name": "image_focal_point",
+                                "type": "select",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_59a2f5fae61b3",
+                                            "operator": "!=",
+                                            "value": ""
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "Center": "Center",
+                                    "Left Center": "Left Center",
+                                    "Right Center": "Right Center",
+                                    "Center Top": "Center Top",
+                                    "Left Top": "Left Top",
+                                    "Right Top": "Right Top",
+                                    "Center Bottom": "Center Bottom",
+                                    "Left Bottom": "Left Bottom",
+                                    "Right Bottom": "Right Bottom"
+                                },
+                                "default_value": [],
+                                "allow_null": 0,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
                             },
                             {
                                 "key": "field_599f2f1a2618a",

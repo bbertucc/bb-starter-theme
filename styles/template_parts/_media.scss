@@ -3,10 +3,10 @@
 --------------------------------------------------------------*/
 
 //Media Globals
-.media-single_media_item, .media-slideshow, .media-portrait_and_landscape{
+.media-single_media_item, .media-grid, .media-slideshow, .media-portrait_and_landscape{
   
   //Items, Slides
-  .single_media_item-item, .slideshow-slide, .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait,
+  .single_media_item-item, .grid-item, .slideshow-slide, .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait,
   .portrait_and_landscape-left_portrait, .portrait_and_landscape-right_portrait{
     position: relative; 
     display: inline-block;
@@ -26,10 +26,9 @@
     .left_portrait-image, .right_portrait-image{
       height: 100%;
       .image-the_image{
-        min-width: 100%;
-        min-height: 100%;
-        height: auto;    
-        width: auto;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
 
@@ -133,85 +132,9 @@
 
 //Grid
 .media-grid{
-  position: relative;
-  padding-bottom: 100%;
   
   //Single Item
   .grid-item{
-    position: absolute;
-    display: inline-block;
-    overflow: hidden;
-    align-items: center;
-    align-content: center;
-    &:nth-of-type(1), &:nth-of-type(4){
-      width: 46%;
-      height: 46%;
-    }
-    &:nth-of-type(2), &:nth-of-type(3){
-      width: 25%;
-      height: 25%;
-    }    
-    &:nth-of-type(1){
-      top: 6.5%;
-      left: 3%;
-    }
-    &:nth-of-type(2){
-      top: 21%;
-      left: 51%;
-    }
-    &:nth-of-type(3){
-      right: 51%;
-      bottom: 21%;
-    }
-    &:nth-of-type(4){
-      right: 3%;
-      bottom: 6.5%;
-    }
-
-    //Image
-    .item-image{
-      position: relative;
-      padding-bottom: 100%;
-      img{
-        position: absolute;
-        width: 100%;
-        height: 100%;
-      }
-    }
-    
-    //Icons
-    .item-play_icon, .item-pdf_icon{
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      text-align: center;
-      position: absolute;
-      &:before{
-        @include fa-icon();
-        text-shadow: 1px 1px 30px rgba(0,0,0,.4);
-      }
-      &:active{
-        opacity: .7;
-      }
-      @media only screen and (max-width: $screen-smaller){
-    	  font-size: 3em !important;
-      }
-    }
-    .item-pdf_icon, .portrait-pdf_icon, .landscape-pdf_icon{
-      &:before{
-        content: $fa-var-file-pdf-o;
-      }
-    }
-    .item-play_icon, .portrait-play_icon, .landscape-play_icon{
-      &:before{
-        content: $fa-var-play-circle-o;
-      }
-    }
-    
-    //Caption
-    .item-caption{
-    }
 
   }
   

@@ -21,13 +21,17 @@
 }
 
 //Mixins
-@mixin button-standard(){
+@mixin button-standard($options:""){
   @extend .button;
   @include responsive-standard_font();
   padding: $cell-smallest $cell-smaller;
   @media only screen and (max-width: $screen-smaller){
 	  display: block;
   }    
+  @if $options == 'inverted' {
+    background: $color-white;
+    color: $color-standard;
+  }
 }
 @mixin button-smaller(){
   @extend .button;

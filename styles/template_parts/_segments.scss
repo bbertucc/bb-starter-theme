@@ -284,5 +284,11 @@
   .button-link{
     @include button-standard();    
   }
+  
+  //Inverted Button
+  .button-inverted_link{
+    @include button-standard('inverted');    
+  }
+  
 }
 
