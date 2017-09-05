@@ -16,6 +16,10 @@ if(get_sub_field('segment_display') == 'Two Column'):
   }else{
     $content_class = 'content_with_right_text';
   }  
+  
+  //Set Optional Inverted Text Class
+  if(get_sub_field('invert_text_color'))
+    $content_class .= '_inverted';
   ?>
 
   <div class="two_column-<?php echo $content_class;?>">

@@ -1,6 +1,6 @@
 <?php
 //One Column Segment
-if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_display') == null) && (get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Media' || get_sub_field('segment_type') == 'Text and Media')):
+if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_display') == null) && (get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Media' || get_sub_field('segment_type') == 'Text and Media' || get_sub_field('segment_type') == 'Only Media')):
 ?>
 
 <div class="segment-one_column">
@@ -19,6 +19,10 @@ if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_
     $text_class = 'regular_text';
   if($text_characters > 800)
     $text_class = 'long_text';
+    
+  //Set Optional Inverted Text Class
+  if(get_sub_field('invert_text_color'))
+    $text_class .= '_inverted';
   
   //Start Segment Text
   if( get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Text and Media' ):

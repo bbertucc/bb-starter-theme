@@ -42,10 +42,11 @@ Tags:
 @import "styles/template_parts/segments";
 
 /*--------------------------------------------------------------
-# Additional Elements: Plugin Styles, Includes, Header, .. etc.
+# Additional Elements: Plugin Styles, Includes, Helper Classes..
 --------------------------------------------------------------*/
-@import "styles/etc/includes";
 @import "styles/etc/animate";
+@import "styles/etc/includes";
+@import "styles/etc/fancybox";
 @import "styles/etc/wordpress";
 
 /*--------------------------------------------------------------

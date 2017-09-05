@@ -36,7 +36,7 @@ if(get_sub_field('segment_type') == 'Testimonials' ):
     
     ?>
     
-    <div class="quotes-single_testimonial" id="testminonial-<?php echo $testimonial_count?>">
+    <div class="quotes-single_quote" id="testminonial-<?php echo $testimonial_count?>">
       
       <?php the_sub_field('testimonial'); ?>
       
@@ -59,7 +59,7 @@ if(get_sub_field('segment_type') == 'Testimonials' ):
     
     ?>
     
-    <a class="sources-the_source" href="#testminonial-<?php echo $testimonial_count?>">
+    <a class="sources-single_source" href="#testminonial-<?php echo $testimonial_count?>">
       
       <?php 
       //Source Variables  
@@ -77,7 +77,7 @@ if(get_sub_field('segment_type') == 'Testimonials' ):
         $img_sizes = '322px';
         
         //The Image
-        echo '<img class="the_source-image" src="'.esc_url($img_src).'" srcset="'.esc_attr($img_srcset).'" sizes="'.$img_sizes.'" alt="'.$source.'">';
+        echo '<img class="single_source-image" src="'.esc_url($img_src).'" srcset="'.esc_attr($img_srcset).'" sizes="'.$img_sizes.'" alt="'.$source.'">';
         
       }
       ?>

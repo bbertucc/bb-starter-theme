@@ -16,11 +16,69 @@
   
   //Page Title
   .standard_content-page_title{
-    
   }
   
   //Standard Content
   .standard_content-the_standard_content{
-    
   }
 }
+
+//Listed Post
+.loop_content-listed_post{
+  
+  //Image
+  .listed_post-image{
+    display: block;
+    position: relative;
+    width: 100%;
+    padding-bottom: 60%;
+    overflow: hidden;
+    .image-the_image{
+      position: absolute;
+      width: 100%;
+      min-width: 100%;
+      min-height: 100%;
+      height: auto;    
+      width: auto;
+    }
+  }
+  
+  //Text
+  .listed_post-text{
+    
+    //Category
+    .text-categories{
+      a{
+      }
+    }
+    
+    //Title
+    .text-title{
+      &:hover{
+      }
+    }
+    
+    //Excerpt
+    .text-excerpt{
+    }
+ 
+  }
+
+}
+
+//Error Message
+.loop_content-error_message{
+  .error_message-title{
+  }
+  .error_message-body{
+  }
+}
+
+//Pagination
+.loop_content-pagination{
+  .current{
+  }
+  a{
+  }
+}
+

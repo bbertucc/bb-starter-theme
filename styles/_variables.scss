@@ -4,7 +4,7 @@
 
 //Typeface Settings
 $font-family-standard: 'Ubuntu', sans-serif;
-$font-family-alternative: 'Permanent Marker', sans-serif;
+$font-family-alternate: 'Permanent Marker', sans-serif;
 $font-FontAwesome: 'FontAwesome';
 $font-weight-bold: 700;
 $font-weight-standard: 400;
@@ -13,16 +13,16 @@ $font-weight-standard: 400;
 $line-height-standard: 1.4em;
 
 //Font Settings
-$font-standard_largest: $font-weight-bold 60px/1.4em $font-family-standard;
-$font-standard_larger: $font-weight-bold 40px/1.4em $font-family-standard;
+$font-largest_standard: $font-weight-bold 60px/1.4em $font-family-standard;
+$font-larger_standard: $font-weight-bold 40px/1.4em $font-family-standard;
 $font-standard: $font-weight-bold 30px/1.4em $font-family-standard;
-$font-standard_smaller: $font-weight-bold 20px/1.4em $font-family-standard;
-$font-standard_smallest: $font-weight-bold 16px/1.4em $font-family-standard;
-$font-alternative_largest: $font-weight-bold 60px/1.4em $font-family-alternative;
-$font-alternative_larger: $font-weight-bold 40px/1.4em $font-family-alternative;
-$font-alternative: $font-weight-bold 30px/1.4em $font-family-alternative;
-$font-alternative_smaller: $font-weight-bold 20px/1.4em $font-family-alternative;
-$font-alternative_smallest: $font-weight-bold 16px/1.4em $font-family-alternative;
+$font-smaller_standard: $font-weight-bold 20px/1.4em $font-family-standard;
+$font-smallest_standard: $font-weight-bold 16px/1.4em $font-family-standard;
+$font-largest_alternate: $font-weight-bold 60px/1.4em $font-family-alternate;
+$font-larger_alternate: $font-weight-bold 40px/1.4em $font-family-alternate;
+$font-alternate: $font-weight-bold 30px/1.4em $font-family-alternate;
+$font-smaller_alternate: $font-weight-bold 20px/1.4em $font-family-alternate;
+$font-smallest_alternate: $font-weight-bold 16px/1.4em $font-family-alternate;
 
 //Single Cell Settings
 $cell-largest: 84px; // Standard Font Size * Line Height

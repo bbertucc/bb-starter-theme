@@ -43,7 +43,7 @@
   display: inline-block;
   border-radius: $border-radius-circle;
   padding: 7px 0;
-  font: $font-standard_smaller;
+  font: $font-smaller_standard;
   height: $cell-standard;
   width: $cell-standard;
   color: $color-white;
@@ -61,7 +61,7 @@
     padding: 10px 0;
   }
   @media only screen and (max-width: $screen-smaller){
-    font: $font-standard_smallest;
+    font: $font-smallest_standard;
     height: $cell-smaller;
     width: $cell-smaller;
     padding: 3px 0;

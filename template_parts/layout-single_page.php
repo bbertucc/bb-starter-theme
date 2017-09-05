@@ -24,7 +24,13 @@ if(is_page()):
 
   <?php
   //End Loop
-  endwhile; endif;
+  endwhile; 
+  else:
+  
+    //Error Message		
+  	get_template_part('template_parts/loop_content', 'error_message');
+  
+  endif;
   ?>
   
 </div>

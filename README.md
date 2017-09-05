@@ -10,7 +10,14 @@ Since the gist, I've added new template_part types called "Segments". Think of S
 - Callout Segments: Callouts are basically banner elements. You can add a background image and scale them to different sizes.
 - Info Box Segments: Info Boxes are the most basic segment type. They just include a title and body, usually under 220 characters (but no character restrictions are imposed).
 
-The goal of this theme is to create a framework that I can incorperate any design into, so you won't find much style code. That said, a developer should have to do minimal work with the theme's HTML/PHP structure and the all the custom fields are integrated into the themes files.
+The goal of this theme is to create a framework that I can incorporate any design into, so you won't find much style code. That said, a developer should have to do minimal work with the theme's HTML/PHP structure and the all the custom fields are integrated into the themes files.
+
+### Getting Started
+Follow these steps to integrate the theme:
+1. Install [Advanced Custom Fields] (version 5+)
+2. Import the acf-page_content.json file into ACF.
+3. Install & activate the theme.
+
 
 ### Styling the Theme
 Lots of thought went into the structure in the `/styles` folder. I'm trying to be explicit, while avoiding redundancy. All SCSS is pulled into `style.scss`. There you can update the theme name and add any external fonts. You should then move to `_variables.scss` where all the theme variables are stored. After that, I would jump into any one of the files (they all should be pretty straight forward and most correspond with template parts).

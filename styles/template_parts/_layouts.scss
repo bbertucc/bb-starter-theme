@@ -12,7 +12,47 @@
   
 }
 
+
 //Archive
 .layout-archive{
+  position: relative;
   
+  //Callout
+  .archive-callout{
+    overflow: hidden;
+    position: relative;
+    @extend .segment-callout;
+
+    //Text (all)
+    .callout-medium, .callout-medium_inverted{      
+      .medium-title, .medium_inverted-title{
+      }
+      .medium-body, .medium_inverted-body{
+      }
+    }
+    
+    //Text (inverted)
+    .callout-text_inverted{
+      .text_inverted-title{
+      }
+      .text_inverted-body{
+      }
+    }
+    
+    //Background
+    .callout-background{
+      @extend .segment-background;
+    }
+    
+  }
+
+  //Loop Content
+  .archive-loop_content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    @include responsive-standard_container();
+    @include responsive-standard_padding();
+  }
+
 }

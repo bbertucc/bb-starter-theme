@@ -1,3 +1,97 @@
 //Footer Styles
 .footer{
+
+  //Links
+  .footer-links{
+    
+    //All items
+    & > div{
+    }    
+    
+    //Logo
+    .links-home{
+      .home-link{
+        .link-logo{
+        }
+      }
+    }
+    
+    //Menu
+    .links-menu{
+      .menu-item{
+      }
+    }
+    
+    //Social Links
+    .links-social{
+      
+      //All Icons
+      & > a{
+        & > span{
+          @include fa-icon();
+        }
+      } 
+      
+      //Facebook Link
+      .social-facebook{
+        .facebook-icon{
+          &:before{
+            content: $fa-var-facebook;
+          }
+        }
+      }
+  
+      //Twitter Link
+      .social-twitter{
+        .twitter-icon{
+          &:before{
+            content: $fa-var-twitter;
+          }
+        }
+      }
+  
+      //Instagram Link
+      .social-instagram{
+        .instagram-icon{
+          &:before{
+            content: $fa-var-instagram;
+          }
+        }
+      }
+  
+      //Pinterest Link
+      .social-pinterest{
+        .pinterest-icon{
+          &:before{
+            content: $fa-var-pinterest;
+          }
+        }
+      }
+  
+      //Medium Link
+      .social-medium{
+        .medium-icon{
+          &:before{
+            content: $fa-var-medium;
+          }
+        }
+      }
+
+      //YouTube Link
+      .social-youtube{
+        .youtube-icon{
+          &:before{
+            content: $fa-var-youtube;
+          }
+        }
+      }
+      
+    }
+        
+  }
+
+  //Text
+  .footer-text{
+  }
+    
 }

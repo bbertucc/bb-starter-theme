@@ -4,9 +4,6 @@
 body{
   margin: 0;
   font-family: $font-family-standard;
-  @media (max-width: $screen-smaller) {
-    font-size: 93%;
-  }
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
