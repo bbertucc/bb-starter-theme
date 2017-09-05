@@ -25,7 +25,7 @@ Lots of thought went into the structure in the `/styles` folder. I'm trying to b
 ### Required Plugins
 To run the theme properly, you'll need [Advanced Custom Fields] (version 5+). You also will need a SASS compiler to spit out CSS from the SCSS I've included. I use the [SASS Plugin for Coda].
 
-### Contibuting
+### Contributing
 The `master` branch includes the most stable site build. Other branches are feature specific. 
 
 I actively update the theme to incorporate stable technology, architecture, and best practices. [_s] and [Sage] loosely inspired my theme's' architecture. [@mdo]'s [code guide] was also an inspiration. I love to follow [DRY] principles and keep features and elements modular when possible. That said, I also love to keep code explicit and readable.
