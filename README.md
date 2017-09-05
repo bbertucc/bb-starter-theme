@@ -15,7 +15,7 @@ The goal of this theme is to create a framework that I can incorporate any desig
 ### Getting Started
 Follow these steps to integrate the theme:
 1. Install [Advanced Custom Fields] (version 5+)
-2. Import the acf-page_content.json file into ACF.
+2. Import the [acf-page_content.json] file into ACF.
 3. Install & activate the theme.
 
 
@@ -37,13 +37,14 @@ Happy hacking!
 
 -Bb.
 
+[a gist]:https://gist.github.com/bbertucc/0918e342a8c981e78e88e714cde1e9d5
 [Advanced Custom Fields]:https://www.advancedcustomfields.com/
+[acf-page_content.json]:https://github.com/bbertucc/bb-starter-theme/blob/master/acf-page_content.json
 [Sage]:https://github.com/roots/sage
 [_s]:https://github.com/Automattic/_s
 [@bbertucc]:https://github.com/bbertucc
 [SASS Plugin for Coda]:https://github.com/keegnotrub/coda-sass-plugin
 [DRY]:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
-[a gist]:https://gist.github.com/bbertucc/0918e342a8c981e78e88e714cde1e9d5
 [code guide]:http://codeguide.co/
 [@mdo]:https://github.com/mdo
 ["Issues" tab]:https://github.com/4pt0/4pt0-theme/issues
