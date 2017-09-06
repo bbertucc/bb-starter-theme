@@ -5,13 +5,24 @@
 //Single Page
 .layout-single_page {
   
+  //Loop Content
+  .single_page-loop_content{
+  }
+  
 }
 
 //Single Post
 .layout-single_post{
+
+  //Media
+  .single_page-media{
+  }
+  
+  //Loop Content
+  .single_post-loop_content{
+  }
   
 }
-
 
 //Archive
 .layout-archive{
@@ -53,6 +64,43 @@
     justify-content: space-around;
     @include responsive-standard_container();
     @include responsive-standard_padding();
+  }
+
+}
+
+//Event List
+.layout-event_list{
+
+  //Callout
+  .event_list-callout{
+    overflow: hidden;
+    position: relative;
+    @extend .segment-callout;
+
+    //Text (all)
+    .callout-medium, .callout-medium_inverted{      
+      z-index: 2;
+      position: relative;
+      .medium-title, .medium_inverted-title{
+      }
+      .medium-body, .medium_inverted-body{
+      }
+    }
+    
+    //Text (inverted)
+    .callout-text_inverted{
+      .text_inverted-title{
+      }
+      .text_inverted-body{
+      }
+    }
+    
+    //Background
+    .callout-background{
+      @extend .segment-background;
+      z-index: 1
+    }
+    
   }
 
 }

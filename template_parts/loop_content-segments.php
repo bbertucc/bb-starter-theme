@@ -20,7 +20,6 @@ if( get_field('content_display') == 'Segmented Page' && have_rows('segments') ):
     
     <?php
     //Segment Parts
-    get_template_part('template_parts/segment', 'background');
     get_template_part('template_parts/segment', 'info_box');
     get_template_part('template_parts/segment', 'one_column');
     get_template_part('template_parts/segment', 'two_column');
@@ -28,6 +27,7 @@ if( get_field('content_display') == 'Segmented Page' && have_rows('segments') ):
     get_template_part('template_parts/segment', 'testimonials');
     get_template_part('template_parts/segment', 'button');
     get_template_part('template_parts/segment', 'filterable_map');
+    get_template_part('template_parts/segment', 'background');
     ?>
   
   </div>

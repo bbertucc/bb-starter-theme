@@ -7,6 +7,8 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
+  z-index: 1;
   pointer-events: none;
   & > div{
     position: absolute;
@@ -43,7 +45,9 @@
 
 //Info Box
 .segment-info_box{
-  
+  position: relative;
+  z-index: 3;
+
   //Content
   .info_box-content{
 
@@ -61,6 +65,8 @@
 
 //Testimonials
 .segment-testimonials{
+  position: relative;
+  z-index: 2;
 
   //Title
   .testimonials-title{
@@ -95,8 +101,10 @@
 
 //Callout
 .segment-callout{
+  position: relative;
   display: table;
   width: 100%;
+  z-index: 2;
   
   //Content (all sizes + inverted)
   .callout-large, .callout-medium, .callout-small, .callout-large_inverted, .callout-medium_inverted, .callout-small_inverted {
@@ -162,6 +170,8 @@
 
 //One Column
 .segment-one_column{
+  position: relative;
+  z-index: 2;
   
   //Text (All)
   .one_column-brief_text, .one_column-regular_text, .one_column-long_text, .one_column-brief_text_inverted, .one_column-regular_text_inverted, .one_column-long_text_inverted{
@@ -214,6 +224,8 @@
 
 //Two Column
 .segment-two_column{
+  position: relative;
+  z-index: 2;
 
   //Content (all)
   .two_column-content_with_left_text, .two_column-content_with_right_text, .two_column-content_with_left_text_inverted, .two_column-content_with_right_text_inverted{
@@ -281,6 +293,8 @@
 
 //Button
 .segment-button{
+  position: relative;
+  z-index: 2;
   .button-link{
     @include button-standard();    
   }

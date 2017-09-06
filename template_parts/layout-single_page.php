@@ -12,11 +12,8 @@ if(is_page()):
   
   <div class="single_page-loop_content">
         
-    <?php
-    //Standard Page		
-  	get_template_part('template_parts/loop_content', 'standard_content');
-  	
-    //Segmented Page		
+    <?php  	
+    //Segments	
   	get_template_part('template_parts/loop_content', 'segments');
   	?>
   	
@@ -36,6 +33,6 @@ if(is_page()):
 </div>
 
 <?php
-//End Segmented Page Layout
+//End Single Page Layout
 endif;
 ?>

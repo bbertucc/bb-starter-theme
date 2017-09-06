@@ -1,13 +1,13 @@
 [
     {
-        "key": "group_59a2f5fadcdec",
-        "title": "Page Content",
+        "key": "group_599ddd9c4a2e9",
+        "title": "Event Information",
         "fields": [
             {
-                "key": "field_59a2f5fae3602",
-                "label": "Content Display",
-                "name": "content_display",
-                "type": "select",
+                "key": "field_5584b28a59c29",
+                "label": "Event Image URL",
+                "name": "event_image",
+                "type": "text",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -16,18 +16,284 @@
                     "class": "",
                     "id": ""
                 },
-                "choices": {
-                    "Standard Page": "Standard Page",
-                    "Segmented Page": "Segmented Page"
-                },
-                "default_value": [],
-                "allow_null": 0,
-                "multiple": 0,
-                "ui": 0,
-                "ajax": 0,
-                "return_format": "value",
-                "placeholder": ""
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "formatting": "html",
+                "maxlength": ""
             },
+            {
+                "key": "field_5581b111e91c5",
+                "label": "Event Description",
+                "name": "event_description",
+                "type": "textarea",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "maxlength": "",
+                "rows": "",
+                "new_lines": "br"
+            },
+            {
+                "key": "field_5584aec8c5e55",
+                "label": "Event Days",
+                "name": "event_days",
+                "type": "text",
+                "instructions": "Format: mm\/dd\/yyyy. Separate multiple dates with a comma then a space. Example: 02\/03\/1989, 02\/23\/1992, 09\/29\/2017.",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_59b03238f00f7",
+                "label": "Event Time",
+                "name": "event_time",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5581b042e91c3",
+                "label": "Admission Charged",
+                "name": "admission_charged",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_5584b2d039b1c",
+                "label": "Admission Fee",
+                "name": "event_fee",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": [
+                    [
+                        {
+                            "field": "field_5581b042e91c3",
+                            "operator": "==",
+                            "value": "1"
+                        }
+                    ]
+                ],
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "formatting": "html",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5584b1f8fda69",
+                "label": "Event Website",
+                "name": "event_website",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5581b3745f09f",
+                "label": "Venue Phone Number",
+                "name": "event_phone",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5581af9fe91c1",
+                "label": "Venue Address",
+                "name": "event_address",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5584b123df949",
+                "label": "Venue Address Line 2",
+                "name": "event_address2",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5584b194b129d",
+                "label": "Venue City",
+                "name": "event_city",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5584b1b44ef45",
+                "label": "Venue State",
+                "name": "event_state",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            },
+            {
+                "key": "field_5584b1cc52202",
+                "label": "Venue Zip \/ Postal Code",
+                "name": "event_zip",
+                "type": "text",
+                "instructions": "",
+                "required": 1,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": "",
+                "maxlength": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "event"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "normal",
+        "style": "seamless",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": [
+            "excerpt",
+            "custom_fields",
+            "discussion",
+            "comments",
+            "author",
+            "format",
+            "featured_image",
+            "categories",
+            "tags",
+            "send-trackbacks"
+        ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_59a2f5fadcdec",
+        "title": "Page Segments",
+        "fields": [
             {
                 "key": "field_59a2f5fae361a",
                 "label": "Segments",
@@ -35,15 +301,7 @@
                 "type": "repeater",
                 "instructions": "",
                 "required": 1,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_59a2f5fae3602",
-                            "operator": "==",
-                            "value": "Segmented Page"
-                        }
-                    ]
-                ],
+                "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
                     "class": "",
@@ -483,7 +741,7 @@
                                         {
                                             "field": "field_59a2f5fae62b5",
                                             "operator": "!=",
-                                            "value": "Circles"
+                                            "value": ""
                                         },
                                         {
                                             "field": "field_59a2f5fae62b5",
@@ -626,14 +884,14 @@
                                 "label": "Caption",
                                 "name": "caption",
                                 "type": "text",
-                                "instructions": "50 Character Limit",
+                                "instructions": "150 Character Limit",
                                 "required": 0,
                                 "conditional_logic": [
                                     [
                                         {
                                             "field": "field_59a2f5fae62b5",
                                             "operator": "!=",
-                                            "value": "Circles"
+                                            "value": ""
                                         },
                                         {
                                             "field": "field_59a2f5fb050f2",
@@ -658,7 +916,7 @@
                                 "placeholder": "",
                                 "prepend": "",
                                 "append": "",
-                                "maxlength": 50
+                                "maxlength": 150
                             }
                         ]
                     },
@@ -811,7 +1069,7 @@
                                 "label": "Caption",
                                 "name": "caption",
                                 "type": "text",
-                                "instructions": "50 Character Limit",
+                                "instructions": "150 Character Limit",
                                 "required": 0,
                                 "conditional_logic": [
                                     [
@@ -831,7 +1089,7 @@
                                 "placeholder": "",
                                 "prepend": "",
                                 "append": "",
-                                "maxlength": 50
+                                "maxlength": 150
                             },
                             {
                                 "key": "field_599f2de626182",
@@ -994,7 +1252,7 @@
                                 "label": "Caption",
                                 "name": "caption",
                                 "type": "text",
-                                "instructions": "50 Character Limit",
+                                "instructions": "150 Character Limit",
                                 "required": 0,
                                 "conditional_logic": [
                                     [
@@ -1014,7 +1272,7 @@
                                 "placeholder": "",
                                 "prepend": "",
                                 "append": "",
-                                "maxlength": 50
+                                "maxlength": 150
                             },
                             {
                                 "key": "field_599f2f1a2618b",
@@ -1610,33 +1868,6 @@
                         "ui_off_text": ""
                     }
                 ]
-            },
-            {
-                "key": "field_59a2f5fae3654",
-                "label": "Standard Content",
-                "name": "standard_content",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": 1,
-                "conditional_logic": [
-                    [
-                        {
-                            "field": "field_59a2f5fae3602",
-                            "operator": "==",
-                            "value": "Standard Page"
-                        }
-                    ]
-                ],
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "delay": 0
             }
         ],
         "location": [
@@ -1656,6 +1887,207 @@
         "hide_on_screen": [
             "the_content"
         ],
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_59aef6cdc15f1",
+        "title": "Post Media",
+        "fields": [
+            {
+                "key": "field_59af11b22b8f0",
+                "label": "Media",
+                "name": "media",
+                "type": "repeater",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "collapsed": "",
+                "min": 0,
+                "max": 0,
+                "layout": "block",
+                "button_label": "+ Add Media Item",
+                "sub_fields": [
+                    {
+                        "key": "field_59af11e62b8f2",
+                        "label": "Media Type",
+                        "name": "media_type",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "Image": "Image",
+                            "YouTube Video": "YouTube Video",
+                            "PDF": "PDF",
+                            "Link": "Link"
+                        },
+                        "default_value": [],
+                        "allow_null": 1,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "return_format": "value",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_59af11bf2b8f1",
+                        "label": "Image",
+                        "name": "image",
+                        "type": "image",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_59af11e62b8f2",
+                                    "operator": "!=",
+                                    "value": ""
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "return_format": "array",
+                        "preview_size": "thumbnail",
+                        "library": "all",
+                        "min_width": "",
+                        "min_height": "",
+                        "min_size": "",
+                        "max_width": "",
+                        "max_height": "",
+                        "max_size": "",
+                        "mime_types": ""
+                    },
+                    {
+                        "key": "field_59af12042b8f3",
+                        "label": "Image Focal Point",
+                        "name": "image_focal_point",
+                        "type": "select",
+                        "instructions": "",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_59af11e62b8f2",
+                                    "operator": "!=",
+                                    "value": ""
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "choices": {
+                            "Center": "Center",
+                            "Left Center": "Left Center",
+                            "Right Center": "Right Center",
+                            "Center Top": "Center Top",
+                            "Left Top": "Left Top",
+                            "Right Top": "Right Top",
+                            "Center Bottom": "Center Bottom",
+                            "Left Bottom": "Left Bottom",
+                            "Right Bottom": "Right Bottom"
+                        },
+                        "default_value": [],
+                        "allow_null": 0,
+                        "multiple": 0,
+                        "ui": 0,
+                        "ajax": 0,
+                        "return_format": "value",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_59af121d2b8f4",
+                        "label": "Link URL",
+                        "name": "link_url",
+                        "type": "url",
+                        "instructions": "Enter link to PDF, YouTube Video, or any site. Defaults to the image URL.",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_59af11e62b8f2",
+                                    "operator": "!=",
+                                    "value": ""
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": ""
+                    },
+                    {
+                        "key": "field_59af122b2b8f5",
+                        "label": "Caption",
+                        "name": "caption",
+                        "type": "text",
+                        "instructions": "150 Character Limit",
+                        "required": 0,
+                        "conditional_logic": [
+                            [
+                                {
+                                    "field": "field_59af11e62b8f2",
+                                    "operator": "!=",
+                                    "value": ""
+                                }
+                            ]
+                        ],
+                        "wrapper": {
+                            "width": "",
+                            "class": "",
+                            "id": ""
+                        },
+                        "default_value": "",
+                        "placeholder": "",
+                        "prepend": "",
+                        "append": "",
+                        "maxlength": 150
+                    }
+                ]
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "event"
+                }
+            ]
+        ],
+        "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
         "active": 1,
         "description": ""
     }

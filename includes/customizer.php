@@ -19,6 +19,12 @@ function theme_customizer_register( $wp_customize ) {
       'priority' => 36,
     )
   );
+  $wp_customize->add_section( 'event_list_settings', array(
+      'title' => __('Event List Settings'),
+      'description' => __('Update content on the event list.'),
+      'priority' => 36,
+    )
+  );
 
   //Add Customizer Settings 
   $wp_customize->add_setting( 'theme_facebook_url' );
@@ -32,6 +38,10 @@ function theme_customizer_register( $wp_customize ) {
   $wp_customize->add_setting( 'theme_post_archive_body' );
   $wp_customize->add_setting( 'theme_post_archive_background' );
   $wp_customize->add_setting( 'theme_post_archive_inverted' );
+  $wp_customize->add_setting( 'theme_event_list_title' );
+  $wp_customize->add_setting( 'theme_event_list_body' );
+  $wp_customize->add_setting( 'theme_event_list_background' );
+  $wp_customize->add_setting( 'theme_event_list_inverted' );
   $wp_customize->add_setting( 'theme_logo' );
   $wp_customize->add_setting( 'theme_alternate_logo' );
   
@@ -115,6 +125,36 @@ function theme_customizer_register( $wp_customize ) {
       )
     )
   );     
+  $wp_customize->add_control( 'theme_event_list_title',
+    array(
+      'label' => 'Event List Title',
+      'section' => 'event_list_settings',
+      'type' => 'text',
+    )
+  );
+  $wp_customize->add_control( 'theme_event_list_body',
+    array(
+      'label' => 'Event List Body',
+      'section' => 'event_list_settings',
+      'type' => 'textarea',
+    )
+  );
+  $wp_customize->add_control( 'theme_event_list_inverted',
+    array(
+      'section'   => 'event_list_settings',
+      'label'     => 'Invert callout text.',
+      'type'      => 'checkbox'
+    )
+  );
+  $wp_customize->add_control( 
+    new WP_Customize_Media_Control( $wp_customize, 'theme_event_list_background',
+      array(
+        'label' => 'Event List Callout Background',
+        'section' => 'event_list_settings',
+        'setting' => 'theme_event_list_background',
+      )
+    )
+  );    
   $wp_customize->add_control( 
     new WP_Customize_Media_Control( $wp_customize, 'theme_logo',
       array(

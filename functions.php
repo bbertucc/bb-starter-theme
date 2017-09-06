@@ -30,4 +30,7 @@ include_once('includes/tinymce.php' );
 //Custom Post Types
 include_once('includes/custom_post_types.php' );
 
+//Custom Taxonomies
+include_once('includes/custom_taxonomies.php' );
+
 ?>

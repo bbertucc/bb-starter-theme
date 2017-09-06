@@ -1,12 +1,11 @@
 <?php
 //Archive Layout
-if(is_archive() || is_home()  || is_search()):
+if( (is_archive() && !is_post_type_archive( 'events' )) || is_home()  || is_search() ):
 ?>
 
 <div class="layout-archive">
   
   <?php
-    
   //Set Archive Content
   if(is_home()){
     
@@ -57,7 +56,6 @@ if(is_archive() || is_home()  || is_search()):
     <div class="callout-medium<?php echo $content_class; ?>">
       
       <?php
-          
       //Segment Title
       if($title)
         echo '<div class="medium'.$content_class.'-title">'.$title.'</div>';
@@ -65,7 +63,6 @@ if(is_archive() || is_home()  || is_search()):
       //Segment Body
       if($body)
         echo '<div class="medium'.$content_class.'-body">'.$body.'</div>';
-  
       ?>
       
     </div>    
@@ -82,19 +79,15 @@ if(is_archive() || is_home()  || is_search()):
   <div class="archive-loop_content">
     
     <?php 
-    //Single Post
+    //Single Post List
     while(have_posts()): the_post();
-    
       get_template_part('template_parts/loop_content', 'listed_post');
-    
     endwhile;
-    
       get_template_part('template_parts/loop_content', 'pagination');
 
+    //If no posts exist..
     else:
-    
       get_template_part('template_parts/loop_content', 'error_message');
-    
     ?>
   
   </div>

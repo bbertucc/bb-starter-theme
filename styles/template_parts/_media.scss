@@ -33,18 +33,22 @@
     }
 
     //Caption
-    .item-caption, .slide-caption{
+    .item-caption, .slide-caption, .landscape_with_right_portrait-caption, .landscape_with_left_portrait-caption,
+    .left_portrait-caption, .right_portrait-caption{
       bottom: 0;
     }
 
     //Icons
-    .item-play_icon, .item-pdf_icon{
+    .item-play_icon, .item-pdf_icon, .landscape_with_right_portrait-play_icon, .landscape_with_left_portrait-play_icon,
+    .left_portrait-play_icon, .right_portrait-play_icon, .landscape_with_right_portrait-pdf_icon, .landscape_with_left_portrait-pdf_icon,
+    .left_portrait-pdf_icon, .right_portrait-pdf_icon{
       height: 100%;
       display: flex;
       justify-content: center;
       flex-direction: column;
       text-align: center;
       position: absolute;
+      font-size: 5.5em;
       &:before{
         @include fa-icon();
         text-shadow: 1px 1px 30px rgba(0,0,0,.4);
@@ -52,16 +56,15 @@
       &:active{
         opacity: .7;
       }
-      @media only screen and (max-width: $screen-smaller){
-    	  font-size: 3em !important;
-      }
     }
-    .item-pdf_icon, .portrait-pdf_icon, .landscape-pdf_icon{
+    .item-pdf_icon, .landscape_with_right_portrait-pdf_icon, .landscape_with_left_portrait-pdf_icon,
+    .left_portrait-pdf_icon, .right_portrait-pdf_icon{
       &:before{
         content: $fa-var-file-pdf-o;
       }
     }
-    .item-play_icon, .portrait-play_icon, .landscape-play_icon{
+    .item-play_icon, .landscape_with_right_portrait-play_icon, .landscape_with_left_portrait-play_icon,
+    .left_portrait-play_icon, .right_portrait-play_icon{
       &:before{
         content: $fa-var-play-circle-o;
       }
@@ -216,4 +219,64 @@
       font-size: 7.5em;
     }
   }
+}
+
+//Post Media
+.media-post_media{
+  display: flex;
+    
+  //Single Item
+  .post_media-item{
+  position: relative;
+
+    //Image
+    .item-image{
+      position: relative;
+      padding-bottom: 100%;
+      img{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+
+      }
+    }
+    
+    //Icons
+    .item-play_icon, .item-pdf_icon{
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      position: absolute;
+      &:before{
+        @include fa-icon();
+        text-shadow: 1px 1px 30px rgba(0,0,0,.4);
+      }
+      &:active{
+        opacity: .7;
+      }
+      @media only screen and (max-width: $screen-smaller){
+    	  font-size: 3em !important;
+      }
+    }
+    .item-pdf_icon, .portrait-pdf_icon, .landscape-pdf_icon{
+      &:before{
+        content: $fa-var-file-pdf-o;
+      }
+    }
+    .item-play_icon, .portrait-play_icon, .landscape-play_icon{
+      &:before{
+        content: $fa-var-play-circle-o;
+      }
+    }
+    
+    //Caption
+    .item-caption{
+      z-index: 2;
+    }
+
+  }
+  
 }
