@@ -2,6 +2,15 @@
 # Standard Variables & Document Properties
 --------------------------------------------------------------*/
 
+//Colors
+$color-standard: #231F20;
+$color-alternate: rgb(42,152,211);
+$color-white: #ffffff;
+$color-light_shade: #EBEBEB;
+$color-dark_shade: rgb(109,110,112);
+$color-translucent: rgba(0, 0, 0, 0.15);
+$color-gradient: linear-gradient(rgb(42,168,211) 0%, rgb(48,158,211) 100%);
+
 //Typeface Settings
 $font-family-standard: 'Ubuntu', sans-serif;
 $font-family-alternate: 'Permanent Marker', sans-serif;
@@ -38,23 +47,20 @@ $screen-standard: $cell-standard*24;
 $screen-larger: $cell-larger*24;
 $screen-largest: $cell-largest*24;
 
-//Colors
-$color-standard: #231F20;
-$color-alternate: rgb(42,152,211);
-$color-white: #ffffff;
-$color-light_shade: #EBEBEB;
-$color-dark_shade: rgb(109,110,112);
-$color-translucent: rgba(0, 0, 0, 0.15);
-$color-gradient: linear-gradient(rgb(42,168,211) 0%, rgb(48,158,211) 100%);
-
-//Shadows
-$box-shadow-smallest: 0px 1px 2px -1px $color-dark_shade;
-$box-shadow-smaller: 0px 1px 6px -1px $color-standard;
-$box-shadow-standard: 0px 1px 12px -1px $color-standard;
-$text-shadow-standard: 1px 1px 3px $color-dark_shade;
+//Image Base Sizes
+$image-base_height: 60%;
+$image-landscape_width: 100%;
+$image-portrait_width: 45%;
+$image-square_width: $image-base_height;
 
 //Border Settings
 $border-width-standard: 3px;
 $border-standard: $border-width-standard solid $color-translucent;
 $border-radius-standard: 999999999px; //A Huge Number to make sure rectangles stay rounded
 $border-radius-circle: 50%;
+
+//Shadows
+$box-shadow-smallest: 0px 1px 2px -1px $color-dark_shade;
+$box-shadow-smaller: 0px 1px 6px -1px $color-standard;
+$box-shadow-standard: 0px 1px 12px -1px $color-standard;
+$text-shadow-standard: 1px 1px 3px $color-dark_shade;

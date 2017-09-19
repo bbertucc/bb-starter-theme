@@ -32,7 +32,7 @@
     display: block;
     position: relative;
     width: 100%;
-    padding-bottom: 60%;
+    @include responsive-image_padding_bottom(100);     
     overflow: hidden;
     .image-the_image{
       position: absolute;
@@ -65,6 +65,127 @@
  
   }
 
+}
+
+//Listed Event
+.loop_content-listed_event{
+
+  //Image
+  .listed_event-image{
+    
+    //The Image
+    .image-the_image{
+    }
+    
+    //"Free" Badge
+    .image-free_badge{
+    }
+    
+  }
+  
+  //Text
+  .listed_event-text{
+    
+    //Event Labels
+    .text-event_labels{
+    }
+
+    //Title
+    .text-title{
+    }
+    
+    //Date Info
+    .text-date_info{
+    }
+    
+  }  
+  
+}
+
+//Single Listing Header
+.loop_content-single_listing_header{
+
+  //Main Header Area
+  .single_listing_header-main{
+    
+    //Badge
+    .main-free_badge{
+    }
+    
+    //Title
+    .main-title{
+    }
+    
+    //Event Days
+    .main-event_days{
+                
+      //Multiple Days
+      .event_days-multiple_days_toggle{
+      }
+      .event_days-multiple_days{
+        display: none; //Displayed Via Fancybox
+      }
+      
+      //Single Day
+      .event_days-single_day{
+      }
+
+    }
+  
+    //Event Label(s)
+    .main-event_labels{     
+      a{
+      }
+    }
+  }
+
+  //Header Sidebar Area
+  .single_listing_header-sidebar{
+    .sidebar-event_website{   
+      .event_website-link{
+      }
+    }
+  }
+  
+}
+
+//Single Listing Body
+.loop_content-single_listing_body{
+  
+  //Main Body Area
+  .single_listing_body-main{
+    .body-event_description{
+    }
+    .body-event_date_info{
+    }
+    .body-admission_fee{
+    }
+  }
+  
+  //Body Sidebar Area
+  .single_listing_body-sidebar{
+      
+    //Map
+    .sidebar-map{
+    }
+    
+    //Phone and Address
+    .sidebar-phone, .sidebar-address{
+    }        
+
+    //Address
+    .sidebar-address{
+      .address-line_1, address-line_2{
+      }
+      .address-event_city_state_zip{
+      }
+    }
+    
+    //Phone
+    .sidebar-phone{
+    }        
+  }
+  
 }
 
 //Error Message

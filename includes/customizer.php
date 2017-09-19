@@ -3,30 +3,122 @@
 //Register Customizer Sections, Settings and Controls
 function theme_customizer_register( $wp_customize ) {
   
-  //Removed Unused Areas
+  //Removed Unused Sections
   $wp_customize->remove_section( 'static_front_page' );
-
-  //Add Customizer Sections
-  $wp_customize->add_section( 'footer_content', array(
-      'title' => __('Footer Content'),
-      'description' => __('Add social links and other content.'),
-      'priority' => 35,
-    )
+  
+  //Add Controls & Settings to Existing Sections
+  $wp_customize->add_setting( 'theme_logo' );
+  $wp_customize->add_setting( 'theme_alternate_logo' );
+  $wp_customize->add_control( 
+    new WP_Customize_Media_Control( $wp_customize, 'theme_logo',
+      array(
+        'label' => 'Logo',
+        'section' => 'title_tagline',
+        'settings' => 'theme_logo',
+      ) 
+    ) 
   );
+  $wp_customize->add_control( 
+    new WP_Customize_Media_Control( $wp_customize, 'theme_alternate_logo',
+      array(
+        'label' => 'Alternate Logo',
+        'section' => 'title_tagline',
+        'settings' => 'theme_alternate_logo',
+      ) 
+    ) 
+  );
+
+  //Add "Archive Settings" Section, Controls and Settings
   $wp_customize->add_section( 'archive_settings', array(
       'title' => __('Archive Settings'),
       'description' => __('Update content on archives.'),
-      'priority' => 36,
+      'priority' => 34,
     )
   );
+  $wp_customize->add_setting( 'theme_post_archive_title' );
+  $wp_customize->add_setting( 'theme_post_archive_body' );
+  $wp_customize->add_setting( 'theme_post_archive_background' );
+  $wp_customize->add_setting( 'theme_post_archive_inverted' );
+  $wp_customize->add_control( 'theme_post_archive_title',
+    array(
+      'label' => 'Post Archive Title',
+      'section' => 'archive_settings',
+      'type' => 'text',
+    )
+  );
+  $wp_customize->add_control( 'theme_post_archive_body',
+    array(
+      'label' => 'Post Archive Body',
+      'section' => 'archive_settings',
+      'type' => 'textarea',
+    )
+  );
+  $wp_customize->add_control( 'theme_post_archive_inverted',
+    array(
+      'section'   => 'archive_settings',
+      'label'     => 'Invert callout text.',
+      'type'      => 'checkbox'
+    )
+  );
+  $wp_customize->add_control( 
+    new WP_Customize_Media_Control( $wp_customize, 'theme_post_archive_background',
+      array(
+        'label' => 'Post Archive Callout Background',
+        'section' => 'archive_settings',
+        'setting' => 'theme_post_archive_background',
+      )
+    )
+  );     
+
+  //Add "Event List" Section, Controls and Settings  
   $wp_customize->add_section( 'event_list_settings', array(
       'title' => __('Event List Settings'),
       'description' => __('Update content on the event list.'),
+      'priority' => 35,
+    )
+  );
+  $wp_customize->add_setting( 'theme_event_list_title' );
+  $wp_customize->add_setting( 'theme_event_list_body' );
+  $wp_customize->add_setting( 'theme_event_list_background' );
+  $wp_customize->add_setting( 'theme_event_list_inverted' );
+  $wp_customize->add_control( 'theme_event_list_title',
+    array(
+      'label' => 'Event List Title',
+      'section' => 'event_list_settings',
+      'type' => 'text',
+    )
+  );
+  $wp_customize->add_control( 'theme_event_list_body',
+    array(
+      'label' => 'Event List Body',
+      'section' => 'event_list_settings',
+      'type' => 'textarea',
+    )
+  );
+  $wp_customize->add_control( 'theme_event_list_inverted',
+    array(
+      'section'   => 'event_list_settings',
+      'label'     => 'Invert callout text.',
+      'type'      => 'checkbox'
+    )
+  );
+  $wp_customize->add_control( 
+    new WP_Customize_Media_Control( $wp_customize, 'theme_event_list_background',
+      array(
+        'label' => 'Event List Callout Background',
+        'section' => 'event_list_settings',
+        'setting' => 'theme_event_list_background',
+      )
+    )
+  );    
+
+  //Add "Footer Content" Section, Controls and Settings  
+  $wp_customize->add_section( 'footer_content', array(
+      'title' => __('Footer Content'),
+      'description' => __('Add social links and other content.'),
       'priority' => 36,
     )
   );
-
-  //Add Customizer Settings 
   $wp_customize->add_setting( 'theme_facebook_url' );
   $wp_customize->add_setting( 'theme_twitter_url' );
   $wp_customize->add_setting( 'theme_instagram_url' );
@@ -34,18 +126,6 @@ function theme_customizer_register( $wp_customize ) {
   $wp_customize->add_setting( 'theme_youtube_url' );
   $wp_customize->add_setting( 'theme_medium_url' );
   $wp_customize->add_setting( 'theme_footer_text' );
-  $wp_customize->add_setting( 'theme_post_archive_title' );
-  $wp_customize->add_setting( 'theme_post_archive_body' );
-  $wp_customize->add_setting( 'theme_post_archive_background' );
-  $wp_customize->add_setting( 'theme_post_archive_inverted' );
-  $wp_customize->add_setting( 'theme_event_list_title' );
-  $wp_customize->add_setting( 'theme_event_list_body' );
-  $wp_customize->add_setting( 'theme_event_list_background' );
-  $wp_customize->add_setting( 'theme_event_list_inverted' );
-  $wp_customize->add_setting( 'theme_logo' );
-  $wp_customize->add_setting( 'theme_alternate_logo' );
-  
-  //Add Customizer Controls   
   $wp_customize->add_control( 'theme_facebook_url',
     array(
       'label' => 'Facebook URL',
@@ -90,89 +170,37 @@ function theme_customizer_register( $wp_customize ) {
   );
   $wp_customize->add_control( 'theme_footer_text',
     array(
-      'label' => 'Footer Credit',
+      'label' => 'Footer Text',
       'section' => 'footer_content',
       'type' => 'text',
     )
   );
-  $wp_customize->add_control( 'theme_post_archive_title',
-    array(
-      'label' => 'Post Archive Title',
-      'section' => 'archive_settings',
-      'type' => 'text',
+
+  //Add "Embed Codes" Section, Controls and Settings  
+  $wp_customize->add_section( 'embed_codes', array(
+      'title' => __('Embed Codes'),
+      'description' => __('Tracking pixels, analytics codes..'),
+      'priority' => 37,
     )
   );
-  $wp_customize->add_control( 'theme_post_archive_body',
+  $wp_customize->add_setting( 'theme_header_code' );
+  $wp_customize->add_setting( 'theme_footer_code' );
+  $wp_customize->add_control( 'theme_header_code',
     array(
-      'label' => 'Post Archive Body',
-      'section' => 'archive_settings',
+      'label' => 'Code before Header',
+      'section' => 'embed_codes',
       'type' => 'textarea',
-    )
-  );
-  $wp_customize->add_control( 'theme_post_archive_inverted',
-    array(
-      'section'   => 'archive_settings',
-      'label'     => 'Invert callout text.',
-      'type'      => 'checkbox'
-    )
-  );
-  $wp_customize->add_control( 
-    new WP_Customize_Media_Control( $wp_customize, 'theme_post_archive_background',
-      array(
-        'label' => 'Post Archive Callout Background',
-        'section' => 'archive_settings',
-        'setting' => 'theme_post_archive_background',
-      )
-    )
-  );     
-  $wp_customize->add_control( 'theme_event_list_title',
-    array(
-      'label' => 'Event List Title',
-      'section' => 'event_list_settings',
-      'type' => 'text',
-    )
-  );
-  $wp_customize->add_control( 'theme_event_list_body',
-    array(
-      'label' => 'Event List Body',
-      'section' => 'event_list_settings',
-      'type' => 'textarea',
-    )
-  );
-  $wp_customize->add_control( 'theme_event_list_inverted',
-    array(
-      'section'   => 'event_list_settings',
-      'label'     => 'Invert callout text.',
-      'type'      => 'checkbox'
-    )
-  );
-  $wp_customize->add_control( 
-    new WP_Customize_Media_Control( $wp_customize, 'theme_event_list_background',
-      array(
-        'label' => 'Event List Callout Background',
-        'section' => 'event_list_settings',
-        'setting' => 'theme_event_list_background',
-      )
     )
   );    
-  $wp_customize->add_control( 
-    new WP_Customize_Media_Control( $wp_customize, 'theme_logo',
-      array(
-        'label' => 'Logo',
-        'section' => 'title_tagline',
-        'settings' => 'theme_logo',
-      ) 
-    ) 
+  $wp_customize->add_control( 'theme_footer_code',
+    array(
+      'label' => 'Code after Footer',
+      'section' => 'embed_codes',
+      'type' => 'textarea',
+    )
   );
-  $wp_customize->add_control( 
-    new WP_Customize_Media_Control( $wp_customize, 'theme_alternate_logo',
-      array(
-        'label' => 'Alternate Logo',
-        'section' => 'title_tagline',
-        'settings' => 'theme_alternate_logo',
-      ) 
-    ) 
-  );
+  
 }
 add_action( 'customize_register', 'theme_customizer_register' ); 
+
 ?>

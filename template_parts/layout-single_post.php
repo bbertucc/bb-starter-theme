@@ -1,6 +1,6 @@
 <?php
 //Begin Single Post Layout
-if(is_single()):
+if(is_single() && !is_singular('event')):
 ?>
 
 <div class="layout-single_post">
