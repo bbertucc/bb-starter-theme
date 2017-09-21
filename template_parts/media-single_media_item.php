@@ -6,6 +6,9 @@ if ( get_sub_field('add_media') == 'Single Media Item' ):
 <div class="media-single_media_item">
       
   <?php
+  //Set Out-of-Repeater Variables
+  $gallery_id = uniqid(); //To group media in Fancybox
+    
   //Start Single Media Repeater 
   if(have_rows('single_media_item')): while(have_rows('single_media_item')): the_row();
     

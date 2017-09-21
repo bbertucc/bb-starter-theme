@@ -32,4 +32,7 @@ include_once('includes/custom_post_types.php' );
 
 //Custom Taxonomies
 include_once('includes/custom_taxonomies.php' );
+
+//Filterable list that's loaded through Ajax
+include_once('includes/ajax_filtered_list.php' );
 ?>

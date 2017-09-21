@@ -306,3 +306,45 @@
   
 }
 
+//Maps
+.segment-maps{
+  position: relative;
+  z-index: 2;
+  
+  //Single Map
+  .maps-single_map{
+    
+    //Title
+    .single_map-title{
+      
+    }
+    
+    //Tag Filters
+    .single_map-tag_filters{
+      .tag_filters-filter{
+        .filter-checkbox{
+        }
+      }
+    } 
+    
+    //Category Filters
+    .single_map-category_filters{
+      .category_filters-filter{
+        .filter-checkbox{
+        }
+      }
+    } 
+    
+    //Event Label Filters
+    .single_map-event_label_filters{
+      .event_label_filters-filter{
+        .filter-checkbox{
+        }
+      }
+    }
+    
+    //The Map
+    .single_map-the_map{
+    }    
+  }
+}

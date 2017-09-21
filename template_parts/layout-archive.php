@@ -1,11 +1,17 @@
 <?php
 //Archive Layout
-if( (is_archive() && !is_post_type_archive( 'events' )) || is_home()  || is_search() ):
+if( (is_archive() && !is_post_type_archive( 'event' )) || is_home()  || is_search() ):
 ?>
 
 <div class="layout-archive">
   
   <?php
+  //Declare Variables
+  $title = null;
+  $body = null;
+  $background_image = null;
+  $inverted = null;    
+    
   //Set Archive Content
   if(is_home()){
     
@@ -50,7 +56,7 @@ if( (is_archive() && !is_post_type_archive( 'events' )) || is_home()  || is_sear
 
     //Set Optional Inverted Text Class
     if($inverted == true)
-      $content_class .= '_inverted';    
+      $content_class = '_inverted';    
     ?>
     
     <div class="callout-medium<?php echo $content_class; ?>">

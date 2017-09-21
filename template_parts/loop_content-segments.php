@@ -1,6 +1,6 @@
 <?php
 //Start Segments
-if( get_field('content_display') == 'Segmented Page' && have_rows('segments') ): 
+if( have_rows('segments') ): 
 ?>
 
 <div class="loop_content-segments">
@@ -11,7 +11,6 @@ if( get_field('content_display') == 'Segmented Page' && have_rows('segments') ):
   
   //Start Segment Repeater
   while ( have_rows('segments') ) : the_row();
-    
     //Add to Count
     $count++;
   ?>
@@ -26,7 +25,7 @@ if( get_field('content_display') == 'Segmented Page' && have_rows('segments') ):
     get_template_part('template_parts/segment', 'callout');
     get_template_part('template_parts/segment', 'testimonials');
     get_template_part('template_parts/segment', 'button');
-    get_template_part('template_parts/segment', 'filterable_map');
+    get_template_part('template_parts/segment', 'maps');
     get_template_part('template_parts/segment', 'background');
     ?>
   

@@ -4,26 +4,6 @@
         "title": "Event Information",
         "fields": [
             {
-                "key": "field_5584b28a59c29",
-                "label": "Event Image URL",
-                "name": "event_image",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "placeholder": "",
-                "prepend": "",
-                "append": "",
-                "formatting": "html",
-                "maxlength": ""
-            },
-            {
                 "key": "field_5581b111e91c5",
                 "label": "Event Description",
                 "name": "event_description",
@@ -62,11 +42,11 @@
                 "maxlength": ""
             },
             {
-                "key": "field_59b03238f00f7",
-                "label": "Event Time",
-                "name": "event_time",
+                "key": "field_59b06f1ec0b70",
+                "label": "Event Date Info",
+                "name": "event_date_info",
                 "type": "text",
-                "instructions": "",
+                "instructions": "Special way to list event's time. ie- \"Every Thursday at 8PM between 12\/4 and 12\/18.\"",
                 "required": 0,
                 "conditional_logic": 0,
                 "wrapper": {
@@ -266,7 +246,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "event"
+                    "value": "events"
                 }
             ]
         ],
@@ -282,7 +262,6 @@
             "comments",
             "author",
             "format",
-            "featured_image",
             "categories",
             "tags",
             "send-trackbacks"
@@ -333,7 +312,7 @@
                             "Callout": "Callout",
                             "Info Box": "Info Box",
                             "Testimonials": "Testimonials",
-                            "Filterable Map": "Filterable Map"
+                            "Maps": "Maps"
                         },
                         "default_value": [],
                         "allow_null": 1,
@@ -829,6 +808,13 @@
                                             "operator": "!=",
                                             "value": ""
                                         }
+                                    ],
+                                    [
+                                        {
+                                            "field": "field_59a2f5fae62b5",
+                                            "operator": "==",
+                                            "value": "Slideshow"
+                                        }
                                     ]
                                 ],
                                 "wrapper": {
@@ -868,6 +854,13 @@
                                             "field": "field_59a2f5fb050f2",
                                             "operator": "!=",
                                             "value": ""
+                                        }
+                                    ],
+                                    [
+                                        {
+                                            "field": "field_59a2f5fae62b5",
+                                            "operator": "==",
+                                            "value": "Slideshow"
                                         }
                                     ]
                                 ],
@@ -1345,7 +1338,7 @@
                                 {
                                     "field": "field_59a2f5fae61b3",
                                     "operator": "==",
-                                    "value": "Filterable Map"
+                                    "value": "Maps"
                                 }
                             ]
                         ],
@@ -1358,65 +1351,159 @@
                         "endpoint": 0
                     },
                     {
-                        "key": "field_59a5cd277d48a",
-                        "label": "Map Content",
-                        "name": "map_content",
-                        "type": "checkbox",
-                        "instructions": "Select or add content types to add to map.",
-                        "required": 0,
-                        "conditional_logic": [
-                            [
-                                {
-                                    "field": "field_59a2f5fae61b3",
-                                    "operator": "==",
-                                    "value": "Filterable Map"
-                                }
-                            ]
-                        ],
+                        "key": "field_59c40cf71132c",
+                        "label": "Maps",
+                        "name": "maps",
+                        "type": "repeater",
+                        "instructions": "",
+                        "required": 1,
+                        "conditional_logic": 0,
                         "wrapper": {
                             "width": "",
                             "class": "",
                             "id": ""
                         },
-                        "choices": {
-                            "page": "page",
-                            "post": "post"
-                        },
-                        "allow_custom": 1,
-                        "save_custom": 1,
-                        "default_value": [],
-                        "layout": "vertical",
-                        "toggle": 0,
-                        "return_format": "value"
-                    },
-                    {
-                        "key": "field_59a5ce0f7d48b",
-                        "label": "Filter Items",
-                        "name": "fiter_items",
-                        "type": "checkbox",
-                        "instructions": "Select or add filter items to add to list.",
-                        "required": 0,
-                        "conditional_logic": [
-                            [
-                                {
-                                    "field": "field_59a2f5fae61b3",
-                                    "operator": "==",
-                                    "value": "Filterable Map"
-                                }
-                            ]
-                        ],
-                        "wrapper": {
-                            "width": "",
-                            "class": "",
-                            "id": ""
-                        },
-                        "choices": [],
-                        "allow_custom": 1,
-                        "save_custom": 1,
-                        "default_value": [],
-                        "layout": "vertical",
-                        "toggle": 0,
-                        "return_format": "value"
+                        "collapsed": "",
+                        "min": 0,
+                        "max": 0,
+                        "layout": "row",
+                        "button_label": "+ Add Map",
+                        "sub_fields": [
+                            {
+                                "key": "field_59c411749715c",
+                                "label": "Map Title",
+                                "name": "map_title",
+                                "type": "text",
+                                "instructions": "",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "default_value": "",
+                                "placeholder": "",
+                                "prepend": "",
+                                "append": "",
+                                "maxlength": ""
+                            },
+                            {
+                                "key": "field_59c1a2fd2c81e",
+                                "label": "Post Type",
+                                "name": "post_type",
+                                "type": "select",
+                                "instructions": "Show geotagged content within a select post type.",
+                                "required": 1,
+                                "conditional_logic": 0,
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "choices": {
+                                    "events": "events",
+                                    "post": "post"
+                                },
+                                "default_value": [],
+                                "allow_null": 1,
+                                "multiple": 0,
+                                "ui": 0,
+                                "ajax": 0,
+                                "return_format": "value",
+                                "placeholder": ""
+                            },
+                            {
+                                "key": "field_59c1676b4a80b",
+                                "label": "Category Filters",
+                                "name": "category_filters",
+                                "type": "taxonomy",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_59c1a2fd2c81e",
+                                            "operator": "!=",
+                                            "value": ""
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "taxonomy": "category",
+                                "field_type": "checkbox",
+                                "allow_null": 0,
+                                "add_term": 0,
+                                "save_terms": 0,
+                                "load_terms": 0,
+                                "return_format": "object",
+                                "multiple": 0
+                            },
+                            {
+                                "key": "field_59c168424a80e",
+                                "label": "Tag Filters",
+                                "name": "tag_filters",
+                                "type": "taxonomy",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_59c1a2fd2c81e",
+                                            "operator": "==",
+                                            "value": "post"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "taxonomy": "post_tag",
+                                "field_type": "checkbox",
+                                "allow_null": 0,
+                                "add_term": 0,
+                                "save_terms": 0,
+                                "load_terms": 0,
+                                "return_format": "object",
+                                "multiple": 0
+                            },
+                            {
+                                "key": "field_59c168024a80d",
+                                "label": "Event Label Filters",
+                                "name": "event_label_filters",
+                                "type": "taxonomy",
+                                "instructions": "",
+                                "required": 0,
+                                "conditional_logic": [
+                                    [
+                                        {
+                                            "field": "field_59c1a2fd2c81e",
+                                            "operator": "==",
+                                            "value": "events"
+                                        }
+                                    ]
+                                ],
+                                "wrapper": {
+                                    "width": "",
+                                    "class": "",
+                                    "id": ""
+                                },
+                                "taxonomy": "event_label",
+                                "field_type": "checkbox",
+                                "allow_null": 0,
+                                "add_term": 0,
+                                "save_terms": 0,
+                                "load_terms": 0,
+                                "return_format": "object",
+                                "multiple": 0
+                            }
+                        ]
                     },
                     {
                         "key": "field_59a2f5fae6372",
@@ -2078,11 +2165,87 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "event"
+                    "value": "events"
                 }
             ]
         ],
         "menu_order": 0,
+        "position": "side",
+        "style": "default",
+        "label_placement": "top",
+        "instruction_placement": "label",
+        "hide_on_screen": "",
+        "active": 1,
+        "description": ""
+    },
+    {
+        "key": "group_59c16cd90ed33",
+        "title": "Map it!",
+        "fields": [
+            {
+                "key": "field_59c16ce71075e",
+                "label": "Location",
+                "name": "location",
+                "type": "google_map",
+                "instructions": "Add location info to geotag this content.",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "center_lat": "29.9256397",
+                "center_lng": "-90.1086654",
+                "zoom": 12,
+                "height": ""
+            }
+        ],
+        "location": [
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "post"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "events"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "page"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "accommodations"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "reveillon"
+                }
+            ],
+            [
+                {
+                    "param": "post_type",
+                    "operator": "==",
+                    "value": "cocktails"
+                }
+            ]
+        ],
+        "menu_order": 30,
         "position": "side",
         "style": "default",
         "label_placement": "top",
