@@ -1,7 +1,7 @@
 <?php
 //ACF Google Maps API 
 function theme_acf_google_map_api( $api ){
-	$api['key'] = 'YOUR_API_CODE';
+	$api['key'] = 'YOUR_API_KEY';
 	return $api;
 }
 add_filter('acf/fields/google_map/api', 'theme_acf_google_map_api');
@@ -19,7 +19,7 @@ if( function_exists('acf_add_local_field_group') ):
   			'name' => 'event_description',
   			'type' => 'textarea',
   			'value' => NULL,
-  			'instructions' => '',
+  			'instructions' => 'Max. Length: 224 Characters',
   			'required' => 0,
   			'conditional_logic' => 0,
   			'wrapper' => array (
@@ -29,7 +29,7 @@ if( function_exists('acf_add_local_field_group') ):
   			),
   			'default_value' => '',
   			'placeholder' => '',
-  			'maxlength' => '',
+  			'maxlength' => 224,
   			'rows' => '',
   			'new_lines' => 'br',
   		),
