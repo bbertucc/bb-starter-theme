@@ -22,10 +22,12 @@ if( have_rows('segments') ):
     get_template_part('template_parts/segment', 'info_box');
     get_template_part('template_parts/segment', 'one_column');
     get_template_part('template_parts/segment', 'two_column');
+    get_template_part('template_parts/segment', 'content_group');
     get_template_part('template_parts/segment', 'callout');
     get_template_part('template_parts/segment', 'testimonials');
-    get_template_part('template_parts/segment', 'button');
+    get_template_part('template_parts/segment', 'contact_info');
     get_template_part('template_parts/segment', 'maps');
+    get_template_part('template_parts/segment', 'button');
     get_template_part('template_parts/segment', 'background');
     ?>
   

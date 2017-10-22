@@ -8,13 +8,18 @@ if(get_sub_field('segment_type') == 'Testimonials' ):
   <?php
   //Text Fields
   $title = get_sub_field('title');
+  $subtitle = get_sub_field('subtitle');
   $body = get_sub_field('body');
 
-  //Segment Title
+  //Title
   if($title)
     echo '<div class="testimonials-title">'.$title.'</div>';
     
-  //Segment Body
+  //Subtitle
+  if($subtitle)
+    echo '<div class="testimonials-title">'.$subtitle.'</div>';
+    
+  //Body
   if($body)
     echo '<div class="testimonials-body">'.$body.'</div>';
 

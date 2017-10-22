@@ -26,13 +26,18 @@ if(get_sub_field('segment_type') == 'Callout' ):
       
     //Text Fields
     $title = get_sub_field('title');
+    $subtitle = get_sub_field('subtitle');
     $body = get_sub_field('body');
 
-    //Segment Title
+    //Title
     if($title)
       echo '<div class="'.$content_class.'-title">'.$title.'</div>';
-      
-    //Segment Body
+
+    //Subtitle
+    if($subtitle)
+      echo '<div class="'.$content_class.'-subtitle">'.$subtitle.'</div>';
+
+    //Body
     if($body)
       echo '<div class="'.$content_class.'-body">'.$body.'</div>';
 

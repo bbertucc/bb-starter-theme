@@ -170,9 +170,7 @@
 
 //Portrait and Landscape
 .media-portrait_and_landscape{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: block;
   
   //Landscape and Portrait (all)
   .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait,
@@ -182,21 +180,27 @@
   
   //Landscape (All)
   .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait{
-    width: 68.2771855%;
+    width: 68%;
+    @media only screen and (max-width: $screen-smallest){
+      width: 67%;
+    }
   }
   
   //Landscape (Portrait Right)
   .portrait_and_landscape-landscape_with_right_portrait{
+    margin-right: 2%;
+    float: left;
   }
   
   //Landscape (Portrait Left)
   .portrait_and_landscape-landscape_with_left_portrait{
-    order: 2;
+    margin-left: 1%;
+    float: right;
   }
   
   //Portrait (All)
   .portrait_and_landscape-right_portrait, .portrait_and_landscape-left_portrait{
-    width: 30.7228145%;
+    width: 30%;
   }
   
   //Portrait (Left)
@@ -213,6 +217,7 @@
   }
   
 }
+
 
 //Single Media Item
 .media-single_media_item{

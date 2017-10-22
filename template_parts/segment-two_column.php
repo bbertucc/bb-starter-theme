@@ -8,6 +8,7 @@ if(get_sub_field('segment_display') == 'Two Column'):
   <?php
   //Text Fields
   $title = get_sub_field('title');
+  $subtitle = get_sub_field('subtitle');
   $body = get_sub_field('body');
   
   //Set Content Class by Text Position
@@ -26,11 +27,15 @@ if(get_sub_field('segment_display') == 'Two Column'):
     <div class="<?php echo $content_class;?>-text">
     
       <?php
-      //Segment Title
+      //Title
       if($title)
         echo '<div class="text-title">'.$title.'</div>';
         
-      //Segment Body
+      //Subtitle
+      if($subtitle)
+        echo '<div class="'.$text_class.'-title">'.$subtitle.'</div>';
+        
+      //Body
       if($body)
         echo '<div class="text-body">'.$body.'</div>';
       ?>   

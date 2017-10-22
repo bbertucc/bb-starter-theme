@@ -15,8 +15,7 @@ The goal of this theme is to create a framework that I can incorporate any desig
 ### Getting Started
 Follow these steps to integrate the theme:
 1. Install [Advanced Custom Fields] (version 5+)
-2. Import the [acf-page_content.json] file into ACF.
-3. Install & activate the theme.
+2. Install & activate the theme.
 
 ### Styling the Theme
 Lots of thought went into the structure in the `/styles` folder. I'm trying to be explicit, while avoiding redundancy. All SCSS is pulled into `style.scss`. There you can update the theme name and add any external fonts. You should then move to `_variables.scss` where all the theme variables are stored. After that, I would jump into any one of the files (they all should be pretty straight forward and most correspond with template parts).

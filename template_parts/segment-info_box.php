@@ -10,13 +10,18 @@ if(get_sub_field('segment_type') == 'Info Box' ):
     <?php
     //Text Fields
     $title = get_sub_field('title');
+    $subtitle = get_sub_field('subtitle');
     $body = get_sub_field('body');
 
-    //Segment Title
+    //Title
     if($title)
       echo '<div class="content-title">'.$title.'</div>';
+
+    //Subtitle
+    if($subtitle)
+      echo '<div class="content-subtitle">'.$subtitle.'</div>';
       
-    //Segment Body
+    //Body
     if($body)
       echo '<div class="content-body">'.$body.'</div>';
     ?>

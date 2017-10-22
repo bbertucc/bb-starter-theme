@@ -54,6 +54,10 @@
     //Title
     .content-title{
     }
+
+    //Subtitle
+    .content-subtitle{
+    }
     
     //Body
     .content-body{
@@ -70,6 +74,10 @@
 
   //Title
   .testimonials-title{
+  }
+
+  //Subtitle
+  .testimonials-subtitle{
   }
   
   //Body
@@ -110,7 +118,7 @@
   .callout-large, .callout-medium, .callout-small, .callout-large_inverted, .callout-medium_inverted, .callout-small_inverted {
     text-align: center;
 
-    //Title and Body
+    //Title, Subtitle and Body
     & > div {
       @include responsive-smaller_container();
     }
@@ -118,6 +126,11 @@
     //Title
     .large-title, .medium-title, .small-title, .large_inverted-title, .medium_inverted-title, .small_inverted-title{
       @include responsive-largest_standard_font();
+    }
+    
+    //Subtitle
+    .large-subtitle, .medium-subtitle, .small-subtitle, .large_inverted-subtitle, .medium_inverted-subtitle, .small_inverted-subtitle{
+      @include responsive-larger_standard_font();
     }
     
     //Body
@@ -150,6 +163,10 @@
     .large-title, .medium-title, .small-title{
     }
     
+    //Subitle
+    .large-subtitle, .medium-subtitle, .small-subtitle{
+    }
+    
     //Body
     .large-body, .medium-body, .small-body{
     }
@@ -158,7 +175,7 @@
   
   //Content (inverted)
  .callout-large_inverted, .callout-medium_inverted, .callout-small_inverted{
-    .large_inverted-title, .medium_inverted-title, .small_inverted-title, .large_inverted-body, .medium_inverted-body, .small_inverted-body{
+    .large_inverted-title, .medium_inverted-title, .small_inverted-title, .large_inverted-subtitle, .medium_inverted-subtitle, .small_inverted-subtitle, .large_inverted-body, .medium_inverted-body, .small_inverted-body{
       color: $color-white;
       a{
         color: $color-white;
@@ -176,12 +193,16 @@
   //Text (All)
   .one_column-brief_text, .one_column-regular_text, .one_column-long_text, .one_column-brief_text_inverted, .one_column-regular_text_inverted, .one_column-long_text_inverted{
 
-    //Title and Body
-    .brief_text-title, .regular_text-title, .long_text-title, .brief_text-body, .regular_text-body, .long_text-body, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
+    //Title, Subtitle and Body
+    .brief_text-title, .regular_text-title, .long_text-title, .brief_text-subtitle, .regular_text-subtitle, .long_text-subtitle, .brief_text-body, .regular_text-body, .long_text-body, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
     }
     
     //Title
     .brief_text-title, .regular_text-title, .long_text-title, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title{
+    }
+    
+    //Subtitle
+    .brief_text-subtitle, .regular_text-subtitle, .long_text-subtitle, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle{
     }
     
     //Body
@@ -192,14 +213,12 @@
   
   //Text (Brief)
   .one_column-brief_text, .one_column-brief_text_inverted{
-    .brief_text-title, .brief_text_inverted-title, .brief_text-body, .brief_text_inverted-body{
+    .brief_text-title, .brief_text_inverted-title, .brief_text-subtitle, .brief_text_inverted-subtitle, .brief_text-body, .brief_text_inverted-body{
     }
   } 
   
   //Text (Regular)
   .one_column-regular_text, .one_column-regular_text_inverted{
-    .regular_text-body, .regular_text-body{
-    }
   } 
   
   //Text (Long)
@@ -208,7 +227,7 @@
   
   //Text (inverted)
   .one_column-brief_text_inverted, .one_column-regular_text_inverted, .one_column-long_text_inverted{
-     .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
+     .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
       color: $color-white;
       a{
         color: $color-white;
@@ -245,12 +264,14 @@
         display: block;
         width: 100%;
       }
-      .text-title, .text-body{
+      .text-title, .text-subtitle, .text-body{
         width: 100%;
         max-width: 360px;
         margin: 0 auto;
       }
       .text-title{
+      }
+      .text-subtitle{
       }
       .text-body{
       }
@@ -280,7 +301,7 @@
   //Content (inverted)
   .two_column-content_with_left_text_inverted, .two_column-content_with_right_text_inverted{
     .content_with_left_text_inverted-text, .content_with_right_text_inverted-text{
-      .text-title, .text-body{
+      .text-title, .text-subtitle, .text-body{
         color: $color-white;
         a{
           color: $color-white;
@@ -316,7 +337,6 @@
     
     //Title
     .single_map-title{
-      
     }
     
     //Tag Filters
@@ -347,4 +367,131 @@
     .single_map-the_map{
     }    
   }
+}
+
+//Contact Info
+.segment-contact_info{
+  z-index: 2;
+  position: relative;
+  
+  //Map
+  .contact_info-map{
+    width: 100%;
+    height: 75vh;
+  }
+  
+  //Text and Form
+  .contact_info-text_and_form{
+    
+    //Title
+    .text_and_form-title{
+    }
+    
+    //Form
+    .text_and_form-contact_form{
+      .form-input_group{
+        .input_group-label{
+        }
+        .input_group-input{
+        }
+      }
+      .form-text_area{
+      }
+      .form-submit{
+      }
+    }
+    
+    //Contact Info
+    .text_and_form-contact_info{
+      
+      //Address
+      .contact_info-address{
+        .address-street{
+        }   
+        .address-city_state_zip{
+        }
+        .address-country{
+        }
+      } 
+      
+      //Phone
+      .contact_info-phone{
+      }
+      
+      //Email
+      .contact_info-email{
+        .email-link{
+        }
+      }      
+      
+    }
+    
+  }
+  
+}
+
+//Content Group
+.segment-content_group{
+  z-index: 2;
+  position: relative;
+
+  //Text (All)
+  .content_group-brief_text, .content_group-regular_text, .content_group-long_text, .content_group-brief_text_inverted, .content_group-regular_text_inverted, .content_group-long_text_inverted{
+
+    //Title, Subtitle and Body
+    .brief_text-title, .regular_text-title, .long_text-title, .brief_text-subtitle, .regular_text-subtitle, .long_text-subtitle, .brief_text-body, .regular_text-body, .long_text-body, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
+    }
+    
+    //Title
+    .brief_text-title, .regular_text-title, .long_text-title, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title{
+    }
+    
+    //Subtitle
+    .brief_text-subtitle, .regular_text-subtitle, .long_text-subtitle, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle{
+    }
+    
+    //Body
+    .brief_text-body, .regular_text-body, .long_text-body, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
+    }
+    
+  } 
+  
+  //Text (Brief)
+  .content_group-brief_text, .content_group-brief_text_inverted{
+    .brief_text-title, .brief_text_inverted-title, .brief_text-subtitle, .brief_text_inverted-subtitle, .brief_text-body, .brief_text_inverted-body{
+    }
+  } 
+  
+  //Text (Regular)
+  .content_group-regular_text, .content_group-regular_text_inverted{
+  } 
+  
+  //Text (Long)
+  .content_group-long_text, .content_group-long_text_inverted{
+  }
+  
+  //Text (inverted)
+  .content_group-brief_text_inverted, .content_group-regular_text_inverted, .content_group-long_text_inverted{
+     .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
+      color: $color-white;
+      a{
+        color: $color-white;
+      }
+    }
+  }
+
+  //Posts
+  .content_group-posts{
+    .posts-listed_post{
+      .listed_post-image{
+      }
+      .listed_post-title{
+      }      
+    }
+  }
+
+  //Users
+  .content_group-users{
+  }
+  
 }
