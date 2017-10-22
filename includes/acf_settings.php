@@ -1,7 +1,7 @@
 <?php
 //ACF Google Maps API 
 function theme_acf_google_map_api( $api ){
-	$api['key'] = 'AIzaSyAnM-IL8wxpZkvVe1e3MKxwVI7Zm3152x8';
+	$api['key'] = 'YOUR_API_CODE';
 	return $api;
 }
 add_filter('acf/fields/google_map/api', 'theme_acf_google_map_api');
@@ -209,7 +209,7 @@ if( function_exists('acf_add_local_field_group') ):
   			'type' => 'text',
   			'value' => NULL,
   			'instructions' => '',
-  			'required' => 1,
+  			'required' => 0,
   			'conditional_logic' => 0,
   			'wrapper' => array (
   				'width' => '',
@@ -229,7 +229,7 @@ if( function_exists('acf_add_local_field_group') ):
   			'type' => 'text',
   			'value' => NULL,
   			'instructions' => '',
-  			'required' => 1,
+  			'required' => 0,
   			'conditional_logic' => 0,
   			'wrapper' => array (
   				'width' => '',
@@ -249,7 +249,7 @@ if( function_exists('acf_add_local_field_group') ):
   			'type' => 'text',
   			'value' => NULL,
   			'instructions' => '',
-  			'required' => 1,
+  			'required' => 0,
   			'conditional_logic' => 0,
   			'wrapper' => array (
   				'width' => '',
@@ -547,10 +547,7 @@ if( function_exists('acf_add_local_field_group') ):
   						'Only Media' => 'Only Media',
   						'Content Group Only' => 'Content Group Only',
   						'Callout' => 'Callout',
-  						'Info Box' => 'Info Box',
   						'Contact Info' => 'Contact Info',
-  						'Testimonials' => 'Testimonials',
-  						'Maps' => 'Maps',
   					),
   					'default_value' => array (
   					),
@@ -588,20 +585,6 @@ if( function_exists('acf_add_local_field_group') ):
   								'field' => 'field_59a2f5fae61b3',
   								'operator' => '==',
   								'value' => 'Callout',
-  							),
-  						),
-  						array (
-  							array (
-  								'field' => 'field_59a2f5fae61b3',
-  								'operator' => '==',
-  								'value' => 'Info Box',
-  							),
-  						),
-  						array (
-  							array (
-  								'field' => 'field_59a2f5fae61b3',
-  								'operator' => '==',
-  								'value' => 'Testimonials',
   							),
   						),
   						array (
@@ -679,101 +662,6 @@ if( function_exists('acf_add_local_field_group') ):
   					'toolbar' => 'full',
   					'media_upload' => 0,
   					'delay' => 0,
-  				),
-  				array (
-  					'key' => 'field_59a3074adf238',
-  					'label' => 'Testimonials',
-  					'name' => 'testimonials',
-  					'type' => 'repeater',
-  					'value' => NULL,
-  					'instructions' => '',
-  					'required' => 0,
-  					'conditional_logic' => array (
-  						array (
-  							array (
-  								'field' => 'field_59a2f5fae61b3',
-  								'operator' => '==',
-  								'value' => 'Testimonials',
-  							),
-  						),
-  					),
-  					'wrapper' => array (
-  						'width' => '',
-  						'class' => '',
-  						'id' => '',
-  					),
-  					'collapsed' => '',
-  					'min' => 0,
-  					'max' => 0,
-  					'layout' => 'table',
-  					'button_label' => '+Add Testimonial',
-  					'sub_fields' => array (
-  						array (
-  							'key' => 'field_59a30765df239',
-  							'label' => 'Testimonial',
-  							'name' => 'testimonial',
-  							'type' => 'textarea',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 1,
-  							'conditional_logic' => 0,
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'default_value' => '',
-  							'placeholder' => '',
-  							'maxlength' => '',
-  							'rows' => '',
-  							'new_lines' => '',
-  						),
-  						array (
-  							'key' => 'field_59a307b6df23a',
-  							'label' => 'Source',
-  							'name' => 'source',
-  							'type' => 'text',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 1,
-  							'conditional_logic' => 0,
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'default_value' => '',
-  							'placeholder' => '',
-  							'prepend' => '',
-  							'append' => '',
-  							'maxlength' => '',
-  						),
-  						array (
-  							'key' => 'field_59a307cedf23b',
-  							'label' => 'Source Image',
-  							'name' => 'source_image',
-  							'type' => 'image',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 0,
-  							'conditional_logic' => 0,
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'return_format' => 'array',
-  							'preview_size' => 'thumbnail',
-  							'library' => 'all',
-  							'min_width' => '',
-  							'min_height' => '',
-  							'min_size' => '',
-  							'max_width' => '',
-  							'max_height' => '',
-  							'max_size' => '',
-  							'mime_types' => '',
-  						),
-  					),
   				),
   				array (
   					'key' => 'field_59a2f5fae628a',
@@ -1534,192 +1422,6 @@ if( function_exists('acf_add_local_field_group') ):
   					'placeholder' => '',
   				),
   				array (
-  					'key' => 'field_59a5ce617d48c',
-  					'label' => 'Map Settings',
-  					'name' => '',
-  					'type' => 'tab',
-  					'instructions' => '',
-  					'required' => 0,
-  					'conditional_logic' => array (
-  						array (
-  							array (
-  								'field' => 'field_59a2f5fae61b3',
-  								'operator' => '==',
-  								'value' => 'Maps',
-  							),
-  						),
-  					),
-  					'wrapper' => array (
-  						'width' => '',
-  						'class' => '',
-  						'id' => '',
-  					),
-  					'placement' => 'top',
-  					'endpoint' => 0,
-  				),
-  				array (
-  					'key' => 'field_59c40cf71132c',
-  					'label' => 'Maps',
-  					'name' => 'maps',
-  					'type' => 'repeater',
-  					'value' => NULL,
-  					'instructions' => '',
-  					'required' => 1,
-  					'conditional_logic' => 0,
-  					'wrapper' => array (
-  						'width' => '',
-  						'class' => '',
-  						'id' => '',
-  					),
-  					'collapsed' => '',
-  					'min' => 0,
-  					'max' => 0,
-  					'layout' => 'row',
-  					'button_label' => '+ Add Map',
-  					'sub_fields' => array (
-  						array (
-  							'key' => 'field_59c411749715c',
-  							'label' => 'Map Title',
-  							'name' => 'map_title',
-  							'type' => 'text',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 1,
-  							'conditional_logic' => 0,
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'default_value' => '',
-  							'placeholder' => '',
-  							'prepend' => '',
-  							'append' => '',
-  							'maxlength' => '',
-  						),
-  						array (
-  							'key' => 'field_59c1a2fd2c81e',
-  							'label' => 'Post Type',
-  							'name' => 'post_type',
-  							'type' => 'select',
-  							'value' => NULL,
-  							'instructions' => 'Show geotagged content within a select post type.',
-  							'required' => 1,
-  							'conditional_logic' => 0,
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'choices' => array (
-  								'events' => 'events',
-  								'post' => 'post',
-  							),
-  							'default_value' => array (
-  							),
-  							'allow_null' => 1,
-  							'multiple' => 0,
-  							'ui' => 0,
-  							'ajax' => 0,
-  							'return_format' => 'value',
-  							'placeholder' => '',
-  						),
-  						array (
-  							'key' => 'field_59c1676b4a80b',
-  							'label' => 'Category Filters',
-  							'name' => 'category_filters',
-  							'type' => 'taxonomy',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 0,
-  							'conditional_logic' => array (
-  								array (
-  									array (
-  										'field' => 'field_59c1a2fd2c81e',
-  										'operator' => '!=',
-  										'value' => '',
-  									),
-  								),
-  							),
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'taxonomy' => 'category',
-  							'field_type' => 'checkbox',
-  							'allow_null' => 0,
-  							'add_term' => 0,
-  							'save_terms' => 0,
-  							'load_terms' => 0,
-  							'return_format' => 'object',
-  							'multiple' => 0,
-  						),
-  						array (
-  							'key' => 'field_59c168424a80e',
-  							'label' => 'Tag Filters',
-  							'name' => 'tag_filters',
-  							'type' => 'taxonomy',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 0,
-  							'conditional_logic' => array (
-  								array (
-  									array (
-  										'field' => 'field_59c1a2fd2c81e',
-  										'operator' => '==',
-  										'value' => 'post',
-  									),
-  								),
-  							),
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'taxonomy' => 'post_tag',
-  							'field_type' => 'checkbox',
-  							'allow_null' => 0,
-  							'add_term' => 0,
-  							'save_terms' => 0,
-  							'load_terms' => 0,
-  							'return_format' => 'object',
-  							'multiple' => 0,
-  						),
-  						array (
-  							'key' => 'field_59c168024a80d',
-  							'label' => 'Event Label Filters',
-  							'name' => 'event_label_filters',
-  							'type' => 'taxonomy',
-  							'value' => NULL,
-  							'instructions' => '',
-  							'required' => 0,
-  							'conditional_logic' => array (
-  								array (
-  									array (
-  										'field' => 'field_59c1a2fd2c81e',
-  										'operator' => '==',
-  										'value' => 'events',
-  									),
-  								),
-  							),
-  							'wrapper' => array (
-  								'width' => '',
-  								'class' => '',
-  								'id' => '',
-  							),
-  							'taxonomy' => 'event_label',
-  							'field_type' => 'checkbox',
-  							'allow_null' => 0,
-  							'add_term' => 0,
-  							'save_terms' => 0,
-  							'load_terms' => 0,
-  							'return_format' => 'object',
-  							'multiple' => 0,
-  						),
-  					),
-  				),
-  				array (
   					'key' => 'field_59e93f7c96798',
   					'label' => 'Content Group',
   					'name' => '',
@@ -2441,84 +2143,6 @@ if( function_exists('acf_add_local_field_group') ):
   	),
   	'active' => 1,
   	'description' => '',
-  ));
-  
-  acf_add_local_field_group(array (
-  	'key' => 'group_59c16cd90ed33',
-  	'title' => 'Map it!',
-  	'fields' => array (
-  		array (
-  			'key' => 'field_59c16ce71075e',
-  			'label' => 'Location',
-  			'name' => 'location',
-  			'type' => 'google_map',
-  			'value' => NULL,
-  			'instructions' => 'Add location info to geotag this content.',
-  			'required' => 0,
-  			'conditional_logic' => 0,
-  			'wrapper' => array (
-  				'width' => '',
-  				'class' => '',
-  				'id' => '',
-  			),
-  			'center_lat' => '29.9256397',
-  			'center_lng' => '-90.1086654',
-  			'zoom' => 12,
-  			'height' => '',
-  		),
-  	),
-  	'location' => array (
-  		array (
-  			array (
-  				'param' => 'post_type',
-  				'operator' => '==',
-  				'value' => 'post',
-  			),
-  		),
-  		array (
-  			array (
-  				'param' => 'post_type',
-  				'operator' => '==',
-  				'value' => 'events',
-  			),
-  		),
-  		array (
-  			array (
-  				'param' => 'post_type',
-  				'operator' => '==',
-  				'value' => 'page',
-  			),
-  		),
-  		array (
-  			array (
-  				'param' => 'post_type',
-  				'operator' => '==',
-  				'value' => 'accommodations',
-  			),
-  		),
-  		array (
-  			array (
-  				'param' => 'post_type',
-  				'operator' => '==',
-  				'value' => 'reveillon',
-  			),
-  		),
-  		array (
-  			array (
-  				'param' => 'post_type',
-  				'operator' => '==',
-  				'value' => 'cocktails',
-  			),
-  		),
-  	),
-  	'menu_order' => 30,
-  	'position' => 'side',
-  	'style' => 'default',
-  	'label_placement' => 'top',
-  	'instruction_placement' => 'label',
-  	'hide_on_screen' => '',
-  	'active' => 1,
-  	'description' => '',
-  ));
+  ));  
 endif;
 ?>
