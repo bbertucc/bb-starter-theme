@@ -6,8 +6,8 @@
     $error_title = 'No events are scheduled.';
     $error_body = '<p>Change your filter settings, or check back for updates.</p>';
   }else{
-    $error_title = 'Uh oh!';
-    $error_body = '<p>No content exists.</p><p>Check the URL or search term then try again.</p>';
+    $error_title = 'Sorry!';
+    $error_body = '<p>No content exists.</p>';
   }
   ?>
   

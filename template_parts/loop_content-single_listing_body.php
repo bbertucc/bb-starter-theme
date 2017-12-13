@@ -19,10 +19,6 @@
   <div class="single_listing_body-sidebar">
 
     <?php 
-    //Map
-    if(get_field('event_address') && get_field('event_zip'))
-      echo '<div class="sidebar-map">[[Map Placeholder]]</div>';
-
     //Start Address
     if(get_field('event_address') || get_field('event_address2') || get_field('event_city') || get_field('event_state') || get_field('event_zip')):  
     ?>

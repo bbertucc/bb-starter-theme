@@ -3,11 +3,14 @@
 if(have_rows('media')):
 ?>
 
-<div class="media-post_media">
+<div class="media-mosaic">
       
   <?php
   //Set Out-of-Repeater Variables
   $gallery_id = uniqid(); //To group media in Fancybox
+  
+  //Set amount of media
+  $total_media = count(get_field('media'));
   
   //Start Media Repeater 
   while(have_rows('media')): the_row();
@@ -26,7 +29,7 @@ if(have_rows('media')):
     ?>
     
     <a 
-      class="post_media-item" 
+      class="mosaic-item" 
       href="<?php echo $link_url ?>" 
       
       <?php 
@@ -45,13 +48,21 @@ if(have_rows('media')):
       <div class="item-image">
 
         <?php
+        
         //Responsive Image
         if($image){
           
           //Set Up Image Variables
-          $img_src = wp_get_attachment_image_url( $image['ID'], 'medium' );
-          $img_srcset =  wp_get_attachment_image_srcset( $image['ID'], 'medium' );;
-          $img_sizes = '(max-width: 1200px) 290px, 350px';
+          if($total_media < 3){
+            $img_src = wp_get_attachment_image_url( $image['ID'], 'large' );
+            $img_srcset =  wp_get_attachment_image_srcset( $image['ID'], 'large' );;
+            $img_sizes = '(max-width: 1440px) 2880px, 4400px';
+          }
+          if($total_media >= 3){
+            $img_src = wp_get_attachment_image_url( $image['ID'], 'medium' );
+            $img_srcset =  wp_get_attachment_image_srcset( $image['ID'], 'medium' );;
+            $img_sizes = '(max-width: 1440px) 960px, 1468px';
+          }
           
           //The Image
           echo '<img class="image-the_image" src="'.esc_url($img_src).'" srcset="'.esc_attr($img_srcset).'" sizes="'.$img_sizes.'" style="object-position:'.get_sub_field('image_focal_point').'">';
@@ -81,7 +92,7 @@ if(have_rows('media')):
   //End Media Repeater
   endwhile;
   ?>
-  
+    
 </div>
 
 <?php

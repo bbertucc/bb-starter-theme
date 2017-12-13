@@ -153,7 +153,6 @@
 
   //Content (small)
   .callout-small, .callout-small_inverted{
-    padding: $cell-smallest;
   }
   
   //Content (all sizes + not inverted)
@@ -250,7 +249,7 @@
   .two_column-content_with_left_text, .two_column-content_with_right_text, .two_column-content_with_left_text_inverted, .two_column-content_with_right_text_inverted{
     display: flex;
     flex-wrap: wrap;
-    @media only screen and (max-width: $screen-smallest){
+    @media only screen and (max-width: $screen-tablet){
       display: block;
     }
 
@@ -260,7 +259,7 @@
       flex-wrap: wrap;
       align-content: center;
       width: 40%;
-      @media only screen and (max-width: $screen-smallest){
+      @media only screen and (max-width: $screen-tablet){
         display: block;
         width: 100%;
       }
@@ -280,7 +279,7 @@
     //Media
     .content_with_left_text-media, .content_with_right_text-media, .content_with_left_text_inverted-media, .content_with_right_text_inverted-media{
       width: 60%;
-      @media only screen and (max-width: $screen-smallest){
+      @media only screen and (max-width: $screen-tablet){
         display: block;
         width: 100%;
       }
@@ -369,6 +368,153 @@
   }
 }
 
+//Content Group
+.segment-content_group{
+  z-index: 2;
+  position: relative;
+  padding: 0 $cell-smaller;
+
+  //All Child
+  & > div{
+    @include responsive-standard_container();
+    &:first-of-type{
+      //Make sure the padding of the section isn't pushed down
+      margin-top: 0 !important;
+    }
+  }
+  
+  //Posts
+  .content_group-posts{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: $cell-smaller;
+    
+    //List post
+    .posts-listed_post{
+      width: 30.3333333333333%;
+      margin-top: 1.5%;
+      margin-bottom: 1.5%;
+      
+      //Thumbmail
+      .listed_post-thumbnail{
+        display: block;
+        width: 100%;
+        padding-bottom: 60%;
+        background: $color-dark_shade;
+        position: relative;
+        overflow: hidden;
+        border-bottom: $cell-smaller solid $color-white;
+        .thumbnail-image{
+          position: absolute;
+          width: 100%;
+        }
+      }
+      
+      
+      //Title, Event Days and Excerpt
+      .listed_post-title, .listed_post-excerpt, .listed_post-event_days{
+        text-decoration: none;
+        background: $color-white;
+        width: 100%;
+        padding-right: $cell-smaller;
+        padding-left: $cell-smaller;
+        padding-bottom: $cell-smaller;
+      }
+      
+      //Title
+      .listed_post-title{
+        display: block;
+        font: $font-alternate;
+        &:hover{
+          text-decoration: underline;
+        }
+      }   
+      
+      //Excerpt
+      .listed_post-excerpt{
+        font: $font-smaller_standard;
+        color: $color-dark_shade;
+      }   
+
+      //Event Days
+      .listed_post-event_days{
+        font: $font-smaller_alternate;
+      }   
+         
+    }
+  }
+
+  //Users
+  .content_group-users{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: $cell-smaller;
+    margin-bottom: 3%;
+    .users-listed_user{
+      display: block;
+      width: 25%;
+      margin-top: 3%;
+      border: $cell-smaller solid;
+      border-color: transparent;
+      text-decoration: none;
+      transition: .15s border-color ;
+         
+      //Avatar
+      .listed_user-avatar{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+      
+      //User Info
+      .listed_user-info{
+        background: $color-white;
+        padding: $cell-smaller;
+        .info-full_name{
+          font: $font-standard;
+        }
+        .info-organization{
+          font: $font-smaller_alternate;
+          color: $color-dark_shade;
+        }
+      } 
+    }    
+  }
+  
+  //Element Responsive Styles
+  @media only screen and (min-width: $screen-tablet) and (max-width: $screen-smaller_desktop){
+    .content_group-users{
+      .users-listed_user{
+        width: 33.33333333333%;
+      }
+    }
+  }
+  @media only screen and (min-width: $screen-mobile) and (max-width: $screen-tablet){
+    .content_group-posts, .content_group-users{
+      .posts-listed_post, .users-listed_user{
+        width: 47%;
+        margin-top: 3%;
+      }
+    }
+  }
+  @media only screen and (max-width: $screen-mobile){
+    .content_group-posts, .content_group-users{
+      .posts-listed_post, .users-listed_user{
+        width: 100%;
+        margin-top: $cell-smaller;
+        margin-bottom: $cell-smaller;
+      }
+      &:last-of-type{
+        padding-bottom: $cell-smaller;
+      }
+    }
+  }
+  
+}
+
+
 //Contact Info
 .segment-contact_info{
   z-index: 2;
@@ -388,14 +534,12 @@
     }
     
     //Form
-    .text_and_form-contact_form{
+    .text_and_form-form{
       .form-input_group{
         .input_group-label{
         }
         .input_group-input{
         }
-      }
-      .form-text_area{
       }
       .form-submit{
       }
@@ -426,72 +570,6 @@
       
     }
     
-  }
-  
-}
-
-//Content Group
-.segment-content_group{
-  z-index: 2;
-  position: relative;
-
-  //Text (All)
-  .content_group-brief_text, .content_group-regular_text, .content_group-long_text, .content_group-brief_text_inverted, .content_group-regular_text_inverted, .content_group-long_text_inverted{
-
-    //Title, Subtitle and Body
-    .brief_text-title, .regular_text-title, .long_text-title, .brief_text-subtitle, .regular_text-subtitle, .long_text-subtitle, .brief_text-body, .regular_text-body, .long_text-body, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
-    }
-    
-    //Title
-    .brief_text-title, .regular_text-title, .long_text-title, .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title{
-    }
-    
-    //Subtitle
-    .brief_text-subtitle, .regular_text-subtitle, .long_text-subtitle, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle{
-    }
-    
-    //Body
-    .brief_text-body, .regular_text-body, .long_text-body, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
-    }
-    
-  } 
-  
-  //Text (Brief)
-  .content_group-brief_text, .content_group-brief_text_inverted{
-    .brief_text-title, .brief_text_inverted-title, .brief_text-subtitle, .brief_text_inverted-subtitle, .brief_text-body, .brief_text_inverted-body{
-    }
-  } 
-  
-  //Text (Regular)
-  .content_group-regular_text, .content_group-regular_text_inverted{
-  } 
-  
-  //Text (Long)
-  .content_group-long_text, .content_group-long_text_inverted{
-  }
-  
-  //Text (inverted)
-  .content_group-brief_text_inverted, .content_group-regular_text_inverted, .content_group-long_text_inverted{
-     .brief_text_inverted-title, .regular_text_inverted-title, .long_text_inverted-title, .brief_text_inverted-subtitle, .regular_text_inverted-subtitle, .long_text_inverted-subtitle, .brief_text_inverted-body, .regular_text_inverted-body, .long_text_inverted-body{
-      color: $color-white;
-      a{
-        color: $color-white;
-      }
-    }
-  }
-
-  //Posts
-  .content_group-posts{
-    .posts-listed_post{
-      .listed_post-image{
-      }
-      .listed_post-title{
-      }      
-    }
-  }
-
-  //Users
-  .content_group-users{
   }
   
 }

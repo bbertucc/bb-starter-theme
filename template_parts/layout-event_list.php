@@ -80,139 +80,171 @@ if( is_post_type_archive( 'event' ) ):
   endif;
   ?>
   
-  <div class="event_list-navigation">
-    
+  <div class="event_list-header">
+    <div class="header-content">
     <?php
     //Setup Query Variables
-    if(!empty($_GET['events_year']) && !empty($_GET['events_week'])){
+    if(!empty($_GET['events_year']) && !empty($_GET['events_month'])){
       
       //Variables with URL Defined Values
       $events_year = $_GET['events_year'];
-      $events_week = $_GET['events_week'];
+      $events_month = $_GET['events_month'];
 
     //Standard Current Week Variables
     }else{
       $events_year = date('Y');
-      $events_week = date('W');
+      $events_month = date('m');
       
     }
     
     //Set next and previous link
-    if( $events_week != null && $events_year != null ){
+    if( $events_month != null && $events_year != null ){
             
       //Set Next/Previous week
-      $previous_week = $events_week-1;
-      $next_week = $events_week+1;
+      $previous_month = $events_month-1;
+      $next_month = $events_month+1;
       $previous_year = $events_year;
       $next_year = $events_year;
       
       //Set Conditions for Dates
-      if($previous_week <= 0 || $previous_week == null){
-        $previous_week = 53;
+      if($previous_month <= 0 || $previous_month == null){
+        $previous_month = 12;
         $previous_year = $events_year-1;
       }
-      if($next_week >= 54){
-        $next_week = 1;
+      if($next_month >= 13){
+        $next_month = 1;
         $next_year = $events_year+1;
       }
       
       //Set Links
-      $previous_link = get_post_type_archive_link('event').'?events_year='.$previous_year.'&events_week='.$previous_week;
-      $next_link = get_post_type_archive_link('event').'?events_year='.$next_year.'&events_week='.$next_week; 
+      $previous_link = get_post_type_archive_link('event').'?events_year='.$previous_year.'&events_month='.$previous_month;
+      $next_link = get_post_type_archive_link('event').'?events_year='.$next_year.'&events_month='.$next_month; 
     }  
     
-    //Set Navigation Text
-    if( $events_week != null && $events_year != null ){
-      $week_start = date("M d", strtotime($events_year.'W'.$events_week.'1'));
-      $week_end = date("M d", strtotime($events_year.'W'.$events_week.'7'));
-      $navigation_text = $week_start.' - '.$week_end;
-    }  
     ?>
     
-    <div class="navigation-text">
-      
-      <?php echo $navigation_text;?>
-      
-    </div>        
-    <a class="navigation-previous" href="<?php echo $previous_link;?>">Previous Week</a>
-    <a class="navigation-next" href="<?php echo $next_link;?>">Next Week</a>
+      <div class="content-current_month">
+        
+        <?php 
+        //Set Month Name  
+        $month_object = DateTime::createFromFormat('!m', $events_month);
+        echo $month_object->format('F');
+        ?>
+        
+      </div>        
+      <div class="content-navigation">
+        <a class="navigation-previous" href="<?php echo $previous_link;?>"></a>
+        <a class="navigation-next" href="<?php echo $next_link;?>"></a>
+      </div>
+    </div>
   </div>
-  <div class="event_list-content">
 
   <?php  
-  //Define Query Variables
-  $week_start = date('Y-m-d', strtotime($events_year.'W'.$events_week.'1'));
-  $week_end = date('Y-m-d', strtotime($events_year.'W'.$events_week.'7'));
-  $begin = new DateTime( $week_start );
-  $end = new DateTime( $week_end );
-  $end = $end->modify( '+1 day' ); 
-  $interval = new DateInterval('P1D');
-  $daterange = new DatePeriod($begin, $interval ,$end);
-  $days_with_posts = 0;
- 
-  //Start Day-By-Day Loop
-  foreach($daterange as $day):
+  //Set the start of the week-by-week loop (first day of month)
+  $month_loop_start = new DateTime($events_year.'-'.$events_month.'-01');
   
-    //Setup Query
-    $single_day_query = new WP_Query(array(
-      'post_type' => 'events',
-      'posts_per_page' => -1,
-    	'meta_query' => array(
-    		array(
-    			'key'     => 'event_days',
-    			'value'   => $day->format('m/d/Y'),
-    			'compare' => 'LIKE',
-    		),
-    	)
-    ));
+  //Set the end of the week-by-week loop (last day of month)
+  $month_end_date = date("Y-m-t", strtotime($events_year.'-'.$events_month.'-01'));
+  $month_loop_end = new DateTime($month_end_date);
+  
+  //Set Loop Interval and Range for weeks in a month
+  $month_loop_interval = new DateInterval('P1D');
+  $month_loop_range = new DatePeriod($month_loop_start, $month_loop_interval, $month_loop_end);
     
-    //Start Loop
-    if($single_day_query->have_posts()):
-    ?>
-      
-      <div class="content-day_header">
-        <div class="day_header-day"><?php echo $day->format('D');?>, </div>
-        <div class="day_header-date"><?php echo $day->format('M d');?></div>
-      </div>
-      <div class="content-loop_content">
-        
-        <?php
-        //Add to the Amount of Days that Have Posts
-        $days_with_posts++;
+  //Set days in each month  
+  $weekNumber = 1;
+  $weeks = array();
+  foreach ($month_loop_range as $date) {
+    $weeks[$weekNumber][] = $date->format('Y-m-d');      
+    if ($date->format('w') == 6) {
+        $weekNumber++;
+    }
+  }
   
+  //Create array with first and last day of each week
+  $weeks = array_map(function($week) {
+      return array('start' => array_shift($week), 'end' => array_pop($week)); 
+    }, $weeks);
+  
+  //Reset count of weeks with posts
+  $weeks_with_posts = 0; 
+  
+  //Start event loop, showing events in each week within each range
+  foreach ($weeks as $week):
+
+    //Set the start and end of each week
+    $week_start = $week['start'];
+    $week_end = $week['end'];
+    
+    //Define Query Variables
+    $begin = new DateTime( $week_start );
+    $end = new DateTime( $week_end );
+    $end = $end->modify( '+1 day' ); 
+    $interval = new DateInterval('P1D');
+    $daterange = new DatePeriod($begin, $interval ,$end);
+       
+    //Start Day-By-Day Loop
+    foreach($daterange as $day):
+
+      //Setup Query
+      $single_day_query = new WP_Query(array(
+        'post_type' => 'event',
+        'posts_per_page' => -1,
+      	'meta_query' => array(
+      		array(
+      			'key'     => 'event_days',
+      			'value'   => $day->format('m/d/Y'),
+      			'compare' => 'LIKE',
+      		),
+      	)
+      ));
+      
+      //Start Loop
+      if($single_day_query->have_posts()):
+      ?>
+      
+      <div class="event_list-week">
+        <div class="week-loop_content">
+        
+        <?php       
+        //Show title
+        echo '<div class="loop_content-week_header">'.date_format(date_create($week_start), 'm/d').' - '.date_format(date_create($week_end), 'm/d').'</div>';
+
         //Single Day Loop
         while ( $single_day_query->have_posts() ):
+
+          //Add to the Amount of Weeks that Have Posts
+          $weeks_with_posts++;
           
+          //List Post
           $single_day_query->the_post();
           get_template_part('template_parts/loop_content', 'listed_event');
-        
+
         //End Single Day Loop
         endwhile;
         wp_reset_postdata();
         ?>
-      
+        
+        </div>
       </div>
-    
-  <?php  
-    //End Loop
-    endif;
+      
+      <?php  
+      //End Loop
+      endif;
+            
+    //End Day-By-Day Loop
+    endforeach;
 
-  //Start Day-By-Day Loop
+  //End Event Loop
   endforeach;
-  ?>
-  
-  </div>
-  
-  <?php
+ 
   //Content Fallback
-  if( $days_with_posts <= 0 ){
+  if( $weeks_with_posts <= 0 )
     get_template_part('template_parts/loop_content', 'error_message');
-  }
-  
+
   ?>
     
   </div>
-
 </div>
 
 <?php

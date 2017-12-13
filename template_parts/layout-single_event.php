@@ -15,7 +15,7 @@ if( is_singular( 'event' ) ):
 
       <?php 
       //Post Media
-      get_template_part('template_parts/media', 'post_media');
+      get_template_part('template_parts/media', 'mosaic');
       ?>
       
     </div>

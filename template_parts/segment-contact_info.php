@@ -45,12 +45,15 @@ if(get_sub_field('segment_type') == 'Contact Info'):
       </div>
       <div class="form-input_group">
         <label class="input_group-label" for="email">Email Address</label>
-        <input class="form-email" type="email" placeholder="email@address.com" id="email">
+        <input class="input_group-input" type="email" placeholder="email@address.com" id="email" required>
       </div>      
-      <textarea class="form-text_area" placeholder="Message..."></textarea>
-      <input class="form-submit" type="button" value="Submit">
+      <div class="form-input_group">
+        <label class="input_group-label" for="email">Message</label>
+        <textarea class="input_group-input" placeholder="Your message..."></textarea>
+      </div>      
+      <input class="form-submit" type="button" value="Send Message">
     </form> 
-    
+        
     <div class="text_and_form-contact_info">
       <div class="contact_info-address">
         
@@ -86,7 +89,7 @@ if(get_sub_field('segment_type') == 'Contact Info'):
       ?>
       
       <div class="contact_info-email">
-        <a class="email-link" href="mailto:<?php echo $email;?>"><?php echo $email;?></a>
+        <a class="email-link" href="mailto:<?php echo $email;?>"  target="_blank"><?php echo $email;?></a>
       </div>    
     </div>
   </div>

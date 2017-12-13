@@ -12,20 +12,21 @@
     
     //Navigation
     .content-menu{
-      @media only screen and (max-width: $screen-smaller){
+      @media only screen and (max-width: $screen-tablet){
         display: none;
+      }
+      .menu-item{
       }
     }
     
     //Search Feature
     .content-feature{
-      
     }
     
     //Toggle
     .content-toggle{
       display: none;
-      @media only screen and (max-width: $screen-smaller){
+      @media only screen and (max-width: $screen-tablet){
         display: block;
       }
       &:before{
@@ -33,5 +34,28 @@
         content: $fa-var-bars
       }
     }
+
+    //Mobile Toggle Settings (Triggered via themeHeaderNavigation.js)
+    &.navigationOpen{
+      
+      //Toggle
+      .content-toggle{
+        &:before{
+          content: $fa-var-close
+        }
+      }
+      
+      //Menu
+      .content-menu{
+        display: block;
+        .menu-item{
+          display: block;
+          &:first-of-type{
+          }
+        }
+      }
+      
+    }
+    
   }
 }

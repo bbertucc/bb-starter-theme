@@ -3,15 +3,17 @@
   display: inline-block;
   line-height: 1;
   border-radius: $border-radius-standard;
-  color: $color-white;
+  color: $color-white !important;
   box-shadow: none;
   cursor: pointer;
   text-align: center;
   outline: 0;
   border: 0;
   text-decoration: none;
-  background: $color-gradient;
+  background: $color-standard;
   box-shadow: $box-shadow-smallest;
+  text-transform: uppercase;
+  user-select: none; 
   &:hover{
     box-shadow: $box-shadow-smaller;
   }
@@ -23,25 +25,37 @@
 //Mixins
 @mixin button-standard($options:""){
   @extend .button;
-  @include responsive-standard_font();
-  padding: $cell-smallest $cell-smaller;
-  @media only screen and (max-width: $screen-smaller){
+  font: $font-alternate;
+  padding: $cell-smaller/2 $cell-standard/2;
+  @media only screen and (max-width: $screen-tablet){
 	  display: block;
   }    
   @if $options == 'inverted' {
     background: $color-white;
-    color: $color-standard;
+    color: $color-standard !important;
   }
 }
-@mixin button-smaller(){
+@mixin button-larger($options:""){
   @extend .button;
-  @include responsive-smaller_standard_font();
-  padding: 5px $cell-smallest;
+  padding: 5px $cell-smaller;
+  @if $options == 'inverted' {
+    background: $color-white;
+    color: $color-standard !important;
+  }
+}
+@mixin button-smaller($options:""){
+  @extend .button;
+  padding: 5px $cell-smaller/2;
+  font: $font-smaller_alternate;
+  @if $options == 'inverted' {
+    background: $color-white;
+    color: $color-standard !important;
+  }
 }
 @mixin button-smallest(){
   @extend .button;
   @include responsive-smallest_font();
-  padding: 3px $cell-smallest;
+  padding: 3px $cell-smaller;
 }
 @mixin button-circle(){
   display: inline-block;
@@ -53,10 +67,10 @@
   color: $color-white;
   text-align: center;
   &:hover{
-    box-shadow: $box-shadow-smaller;
+    box-shadow: $box-shadow-standard;
   }
   &:active{
-    box-shadow: $box-shadow-smallest;
+    box-shadow: $box-shadow-smaller;
   }
   @media only screen and (min-width: $screen-largest){
     font: $font-standard;
@@ -64,8 +78,8 @@
     width: $cell-larger;
     padding: 10px 0;
   }
-  @media only screen and (max-width: $screen-smaller){
-    font: $font-smallest_standard;
+  @media only screen and (max-width: $screen-tablet){
+    font: $font-smaller_standard;
     height: $cell-smaller;
     width: $cell-smaller;
     padding: 3px 0;

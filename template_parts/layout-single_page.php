@@ -30,6 +30,15 @@ if(is_page()):
   endif;
   ?>
   
+  <div class="single_page-features">
+    
+    <?php  	
+    //Filterable Archive Feature	
+  	get_template_part('template_parts/feature', 'filterable_archive');
+  	?>
+  	    
+  </div>
+  
 </div>
 
 <?php

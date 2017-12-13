@@ -15,6 +15,7 @@ function theme_custom_taxonomies() {
   		'rewrite'           => array( 'slug' => 'event_label' ),
 		)
 	);
+	register_taxonomy_for_object_type( 'event_label', 'event' );
 	
 }
 add_action( 'init', 'theme_custom_taxonomies' );

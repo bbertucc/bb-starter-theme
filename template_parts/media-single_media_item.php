@@ -24,10 +24,21 @@ if ( get_sub_field('add_media') == 'Single Media Item' ):
       $link_url = $image['sizes']['large'];
     if($media_type == 'PDF')
       $link_url = 'javascript:;';
+      
+    //Set Sizing Preset
+    if(get_sub_field('sizing_preset') == 'Landscape'){
+      $image_class = 'landscape';
+    }elseif(get_sub_field('sizing_preset') == 'Portrait'){
+      $image_class = 'portrait';
+    }elseif(get_sub_field('sizing_preset') == 'Square'){
+      $image_class = 'square';
+    }else{
+      $image_class = 'item';
+    }
     ?>
     
     <a 
-      class="single_media_item-item" 
+      class="single_media_item-<?php echo $image_class;?>" 
       href="<?php echo $link_url ?>" 
       
       <?php 

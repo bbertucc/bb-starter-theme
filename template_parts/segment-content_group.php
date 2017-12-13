@@ -6,98 +6,51 @@ if(get_sub_field('segment_type') == 'Content Group Only' || get_sub_field('segme
 <div class="segment-content_group">
   
   <?php
-  //Text Fields
-  $title = get_sub_field('title');
-  $subtitle = get_sub_field('subtitle');
-  $body = get_sub_field('body'); 
-
-  //Set Text Extentions By Character and Paragraph Count
-  $text_characters = strlen(strip_tags($body));
-  $text_paragraphs = substr_count($body, '<p');
-  if($text_characters < 300)
-    $text_class = 'brief_text';
-  if( ($text_characters > 300) && ($text_characters < 800) )
-    $text_class = 'regular_text';
-  if($text_characters > 800)
-    $text_class = 'long_text';
-    
-  //Set Optional Inverted Text Class
-  if(get_sub_field('invert_text_color'))
-    $text_class .= '_inverted';
-
-  //Start Text
-  if(get_sub_field('segment_type') == 'Text and Content Group'  && (!$title  || !$subtitle  || !$body) ):
-  ?>
-
-  <div class="content_group-<?php echo $text_class;?>">
-    
-    <?php
-    //Title
-    if($title)
-      echo '<div class="'.$text_class.'-title">'.$title.'</div>';
-
-    //Subtitle
-    if($subtitle)
-      echo '<div class="'.$text_class.'-subtitle">'.$subtitle.'</div>';
-      
-    //Body
-    if($body)
-      echo '<div class="'.$text_class.'-body">'.$body.'</div>';
-    ?>   
-     
-  </div>
-
-  <?php
-  //End Text
-  endif;
-    
-  //Content List Fields
+  //Content Group Fields
   $grouped_content = get_sub_field('grouped_content');
-  $posts = get_sub_field('posts'); 
+  $site_content = get_sub_field('site_content'); 
   $users = get_sub_field('users');
-    
+  
   //Start Posts Group
-  if( $grouped_content == 'Posts' && $posts ):
+  if( $grouped_content == 'Site Content' && $site_content ):
   ?>    
   
   <div class="content_group-posts">
     
     <?php
     //Start Posts Repeater
-    foreach( $posts as $post): setup_postdata($post);
+    foreach( $site_content as $post): setup_postdata($post);
     ?>
 
-    <a class="posts-listed_post" href="<?php the_permalink(); ?>">
+    <div class="posts-listed_post">
+      
+      <a class="listed_post-thumbnail" href="<?php the_permalink(); ?>">
       
       <?php
-      //Responsive Image
-      if(get_post_type() == 'attachment'){
-        $image_id = get_the_ID();
-      }else{
-        $image_id = get_post_thumbnail_id();        
-      }
-      if($image_id){
-        
-        //Set Up Image Variables
-        $img_src = wp_get_attachment_image_url( $image_id, 'medium' );
-        $img_srcset =  wp_get_attachment_image_srcset( $image_id, 'medium' );;
-        $img_sizes = '(max-width: 1200px) 290px, 350px';
-        
-        //The Image
-        echo '<img class="listed_post-image" src="'.esc_url($img_src).'" srcset="'.esc_attr($img_srcset).'" sizes="'.$img_sizes.'">';
-        
-      }
+      //The Image
+      if(get_the_post_thumbnail_url(get_the_ID(), 'thumbnail'))
+        echo '<img class="thumbnail-image" src="'.get_the_post_thumbnail_url(get_the_ID(), 'thumbnail').'">';        
+      ?>
       
+      </a>
+        
+      <?php
+      //Event Dates
+      if(get_field('event_days'))
+        echo '<div class="listed_post-event_days">'.get_field('event_days').'</div>'; 
       //Title
       if(get_the_title())
-        echo '<div class="listed_post-title">'.get_the_title().'</div>'; 
+        echo '<a class="listed_post-title" href="'.get_permalink().'">'.get_the_title().'</a>'; 
+      //Excerpt
+      if(has_excerpt() || get_field('event_description'))
+        echo '<div class="listed_post-excerpt">'.get_the_excerpt().get_field('event_description').'</div>'; 
       ?>
 
-    </a>
+    </div>
 
     <?php 
     //End Posts Repeater
-    endforeach; 
+    endforeach; wp_reset_postdata();
     ?>
       
   </div>
@@ -108,13 +61,57 @@ if(get_sub_field('segment_type') == 'Content Group Only' || get_sub_field('segme
   
   //Start Users Group
   if( $grouped_content == 'Users' && $users ):
-
   ?>    
   
   <div class="content_group-users">
     
-    Coming soon!
+    <?php
+    //Start Posts Repeater
+    foreach( $users as $user): 
+    
+      //Link Listed User to website if user has a website
+      if(!empty($user['user_url'])){
+        echo '<a class="users-listed_user" href="'.$user['user_url'].'" target="_blank">';
+      }else{
+        echo '<div class="users-listed_user">';
+      }
       
+      //The Avatar
+      echo get_avatar( $user['ID'], 408, null, null, array('class' => array('listed_user-avatar') ) );
+              
+      //Start User Info
+      if(!empty($user['user_firstname']) || !empty($user['user_lastname']) || get_field('organization','user_'.$user['ID'])):
+      ?>
+      
+      <div class="listed_user-info">
+        
+        <?php
+        //Full Name  
+        if(!empty($user['user_firstname']) || !empty($user['user_lastname']))
+         echo '<div class="info-full_name">'.$user['user_firstname'].' '.$user['user_lastname'].'</div>';
+         
+        //Organization
+        if(get_field('organization','user_'.$user['ID']))
+         echo '<div class="info-organization">'.get_field('organization','user_'.$user['ID']).'</div>';
+        ?>
+        
+      </div>
+      
+      <?php
+      //End User Info
+      endif;
+        
+      //Close avatar link or div
+      if(!empty($user['user_url'])){
+        echo '</a>';
+      }else{
+        echo '</div>';
+      }
+   
+    //End Posts Repeater
+    endforeach; 
+    ?>
+            
   </div>
   
   <?php

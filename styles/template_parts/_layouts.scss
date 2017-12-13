@@ -85,6 +85,7 @@
     overflow: hidden;
     position: relative;
     @extend .segment-callout;
+    padding: 0 !important;
 
     //Text (all)
     .callout-medium, .callout-medium_inverted{      
@@ -99,7 +100,11 @@
     //Background
     .callout-background{
       @extend .segment-background;
-      z-index: 1
+      background: $color-standard;
+      z-index: 1;
+      .background-image{
+        opacity: .7;
+      }
     }
     
   }
@@ -110,32 +115,108 @@
     }
   }
   
-  //Navigation
-  .event_list-navigation{
-    
-    .navigation-text{
-      
-    }
-    .navigation-previous{
-      
-    }
-    .nevigation-next{
-      
-    }
+  //Header
+  .event_list-header{
+    .header-content{
+      .content-current_month{
+      }
+      .content-navigation{
+        .navigation-previous, .navigation-next{
+          @include button-standard('inverted');
+        } 
+        .navigation-previous{
+          &:after{
+            content: 'Previous Month';
+          }
+          &:before{
+            @include fa-icon();
+            content: $fa-var-chevron-left;
+            margin-right: $cell-smaller;
+            font-size: 17px;
+          }
+        }     
+        .navigation-next{
+          &:before{
+            content: 'Next Month';
+          }
+          &:after{
+            @include fa-icon();
+            content: $fa-var-chevron-right;
+            margin-left: $cell-smaller;
+            font-size: 17px;
+          }
+        }     
+      } 
+    }    
   }
   
-  //Loop Content
-  .event_list-loop_content{
+  //Week
+  .event_list-week{
     
-    //Day Header
-    .loop_content-day_header{
-      .day_header-day{
-        
+    //Loop Content
+    .week-loop_content{
+      
+      //Week Header
+      .loop_content-week_header{
       }
-      .day_header-date{
+
+    }
+
+  }
+  
+  //Responsive Styles
+  @media only screen and (min-width: $screen-mobile) and (max-width: $screen-tablet){
+    .event_list-header{
+      .header-content{
+        .content-navigation{
+          .navigation-previous, .navigation-next{
+            @include button-smaller('inverted'); 
+          }
+          .navigation-previous{
+            &:after{
+              content: 'Prev.';
+            }
+            &:before{
+              font-size: 14px;
+              margin-right: $cell-smaller/2;
+            }
+          }
+          .navigation-next{
+            &:before{
+              content: 'Next';
+            }
+            &:after{
+              font-size: 14px;
+              margin-left: $cell-smaller/2;
+            }
+          }
+        }
       }
     }
-    
+  }
+  @media only screen and (max-width: $screen-mobile){
+    .event_list-header{
+      .header-content{
+        .content-navigation{
+          .navigation-previous{
+            &:after{
+              content: '';
+            }
+            &:before{
+              margin: 0;
+            }
+          }
+          .navigation-next{
+            &:before{
+              content: '';
+            }
+            &:after{
+              margin: 0;
+            }
+          }
+        }
+      }
+    }    
   }
 
 }

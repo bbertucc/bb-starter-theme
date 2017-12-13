@@ -106,7 +106,7 @@ a img.aligncenter {
 }
 
 
- @media (max-width: $screen-smaller)  {
+ @media (max-width: $screen-tablet)  {
   .alignright, .alignleft {
     width: 100% !important;
     max-width: 100% !important;

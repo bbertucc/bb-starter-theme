@@ -1,6 +1,11 @@
 <?php
 //One Column Segment
-if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_display') == null) && (get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Media' || get_sub_field('segment_type') == 'Text and Media' || get_sub_field('segment_type') == 'Only Media')):
+if((
+    get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_display') == null 
+  ) && (
+    get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Media' || get_sub_field('segment_type') == 'Text and Media' || get_sub_field('segment_type') == 'Only Media' || get_sub_field('segment_type') == 'Text and Content Group'
+  )
+):
 ?>
 
 <div class="segment-one_column">
@@ -26,7 +31,7 @@ if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_
     $text_class .= '_inverted';
   
   //Start Segment Text
-  if( get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Text and Media' ):
+  if( get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Text and Media' || get_sub_field('segment_type') == 'Text and Content Group' ):
   ?>
 
   <div class="one_column-<?php echo $text_class;?>">
@@ -38,7 +43,7 @@ if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_
 
     //Subtitle
     if($subtitle)
-      echo '<div class="'.$text_class.'-title">'.$subtitle.'</div>';
+      echo '<div class="'.$text_class.'-subtitle">'.$subtitle.'</div>';
       
     //Body
     if($body)
@@ -52,7 +57,7 @@ if( (get_sub_field('segment_display') == 'One Column' || get_sub_field('segment_
   endif;
 
   //Start Segment Media
-  if(get_sub_field('segment_type') == 'Only Media' || get_sub_field('segment_type') == 'Text and Media' ):
+  if( get_sub_field('segment_type') == 'Text' || get_sub_field('segment_type') == 'Text and Media' ):
   ?>
     
   <div class="one_column-media">

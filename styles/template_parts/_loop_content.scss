@@ -8,6 +8,7 @@
   //Single Segment
   .segments-segment{
     position: relative;
+    padding: $cell-larger*2 0;
   }
 }
 
@@ -86,65 +87,93 @@
   //Text
   .listed_event-text{
     
-    //Event Labels
-    .text-event_labels{
-    }
-
     //Title
     .text-title{
     }
     
     //Date Info
-    .text-date_info{
+    .text-date_data{
     }
     
   }  
-  
+
 }
 
-//Single Listing Header
-.loop_content-single_listing_header{
-
-  //Main Header Area
-  .single_listing_header-main{
-    
-    //Badge
-    .main-free_badge{
-    }
-    
-    //Title
-    .main-title{
-    }
-    
-    //Event Days
-    .main-event_days{
-                
-      //Multiple Days
-      .event_days-multiple_days_toggle{
-      }
-      .event_days-multiple_days{
-        display: none; //Displayed Via Fancybox
-      }
-      
-      //Single Day
-      .event_days-single_day{
-      }
-
-    }
+//Single Listing Body
+.loop_content-single_listing_body{
+  @include responsive-standard_container();
+  display: flex;
+  flex-wrap: wrap;
   
-    //Event Label(s)
-    .main-event_labels{     
-      a{
-      }
+  //Main Body Area
+  .single_listing_body-main{
+    width: 70%;
+    padding-bottom: $cell-standard;
+
+    @media only screen and (max-width: $screen-tablet){
+      width: 60%;
+    }
+    .body-event_description, .body-event_date_info{
+      font: $font-standard;
+      padding: $cell-standard $cell-smaller;
+    }
+    .body-event_date_info{
+      color: $color-dark_shade;
+    }
+    .body-price{
+      display: inline-block;
+      font-weight: $font-weight-bold;
+      @include responsive-standard_padding();
+      padding-top: 0 !important;
+      @include responsive-standard_font();
     }
   }
+  
+  //Body Sidebar Area
+  .single_listing_body-sidebar{
+    width: 30%;
+    @include responsive-standard_padding();
+    border-left: $border-standard;
+    font: $font-smaller_standard;
+    padding-bottom: $cell-standard;
+    @media only screen and (max-width: $screen-tablet){
+      width: 40%;
+    }
+      
+    //Phone and Address
+    .sidebar-phone, .sidebar-address, .sidebar-website{
+      position: relative;
+      margin-left: $cell-smaller+6;
+      &:before{
+        @include fa-icon();
+        position: absolute;
+        left: -$cell-smaller;
+      }
+    }        
 
-  //Header Sidebar Area
-  .single_listing_header-sidebar{
-    .sidebar-event_website{   
-      .event_website-link{
+    //Address
+    .sidebar-address{
+      &:before{
+        content: $fa-var-compass;
+        font-size: 14px;
+        left: -$cell-smaller - 2;
+      }
+      .address-line_1, address-line_2{
+      }
+      .address-city_state_zip{
       }
     }
+
+    //Phone
+    .sidebar-phone{
+      margin-top: $cell-smaller;
+      &:before{
+        font-size: 14px;
+        left: -$cell-smaller;
+        content: $fa-var-phone;
+      }
+    }
+            
   }
   
 }

@@ -6,7 +6,7 @@
 .media-single_media_item, .media-grid, .media-slideshow, .media-portrait_and_landscape{
   
   //Items, Slides
-  .single_media_item-item, .grid-item, .slideshow-slide, .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait,
+  .single_media_item-landscape, .single_media_item-portrait, .single_media_item-square, .single_media_item-item, .grid-item, .slideshow-slide, .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait,
   .portrait_and_landscape-left_portrait, .portrait_and_landscape-right_portrait{
     position: relative; 
     display: inline-block;
@@ -21,7 +21,7 @@
     }
 
     //Image
-    .item-image, .slide-image, .landscape_with_right_portrait-image, .landscape_with_left_portrait-image,
+    .portrait-image, .square-image, .landscape-image, .item-image, .slide-image, .landscape_with_right_portrait-image, .landscape_with_left_portrait-image,
     .left_portrait-image, .right_portrait-image{
       height: 100%;
       .image-the_image{
@@ -35,6 +35,7 @@
     .item-caption, .slide-caption, .landscape_with_right_portrait-caption, .landscape_with_left_portrait-caption,
     .left_portrait-caption, .right_portrait-caption{
       bottom: 0;
+      background: $color-translucent;
     }
 
     //Icons
@@ -86,10 +87,10 @@
 
     //Caption
     .slide-caption {
-      font: $font-smallest_standard;
+      font: $font-smaller_standard;
       padding: $cell-smaller;
       z-index: 2;
-      @media only screen and (max-width: $screen-smaller){
+      @media only screen and (max-width: $screen-tablet){
     	  padding: $cell-smaller/2;
       }
     }   
@@ -143,21 +144,17 @@
     &:nth-of-type(3n), &:last-of-type{
       margin-right: 0;
     }
-    @media only screen and (min-width: $screen-smallest) and (max-width: $screen-smaller){
+    @media only screen and (max-width: $screen-tablet){
       width: 49.5%;
       @include responsive-image_padding_bottom(201); 
     }
-    @media only screen and (max-width: $screen-smallest){
-  	  width: 100% !important;
-      @include responsive-image_padding_bottom(100); 
-    }
-    
+
     //Caption
     .item-caption {
-      font: $font-smallest_standard;
-      padding: $cell-smallest;
-      @media only screen and (max-width: $screen-smaller){
-    	  padding: $cell-smallest/2;
+      font: $font-smaller_standard;
+      padding: $cell-smaller;
+      @media only screen and (max-width: $screen-tablet){
+    	  padding: $cell-smaller/2;
       }
     }    
     
@@ -181,7 +178,7 @@
   //Landscape (All)
   .portrait_and_landscape-landscape_with_right_portrait, .portrait_and_landscape-landscape_with_left_portrait{
     width: 68%;
-    @media only screen and (max-width: $screen-smallest){
+    @media only screen and (max-width: $screen-tablet){
       width: 67%;
     }
   }
@@ -211,7 +208,7 @@
   //Icons
   .landscape_with_right_portrait-play_icon, .landscape_with_left_portrait-play_icon, .left_portrait-play_icon, .right_portrait-play_icon, .landscape_with_right_portrait-pdf_icon, .landscape_with_left_portrait-pdf_icon, .left_portrait-pdf_icon, .right_portrait-pdf_icon{
     font-size: 6.5em;
-    @media only screen and (max-width: $screen-smaller){
+    @media only screen and (max-width: $screen-tablet){
       font-size: 3.5em;
     }
   }
@@ -224,64 +221,67 @@
   text-align: center;
   position: relative; 
     
-  //Item
-  .single_media_item-item{
-    padding-bottom: 60%; 
-    width: 100%;
+  //All Types of Items
+  .single_media_item-item, .single_media_item-landscape, .single_media_item-portrait, .single_media_item-square{
+    width: 100%;    
 
     //Caption
-    .item-caption{
+    .item-caption, .landscape-caption, .portrait-caption, .square-caption{
       @include responsive-standard_font();
       padding: $cell-smaller;
-      @media only screen and (max-width: $screen-smaller){
+      @media only screen and (max-width: $screen-tablet){
     	  padding: $cell-smaller/2;
       }
     }
 
     //Icons
-    .item-play_icon, .item-pdf_icon{
+    .item-play_icon, .item-pdf_icon, .landscape-play_icon, .landscape-pdf_icon, .portrait-play_icon, .portrait-pdf_icon, .square-play_icon, .square-pdf_icon{
       font-size: 7.5em;
-      @media only screen and (max-width: $screen-smaller){
+      @media only screen and (max-width: $screen-tablet){
       font-size: 4.5em;
       }
     }
     
   }
   
+  //Landscape
+  .single_media_item-landscape{
+    padding-bottom: 60%; 
+  }
+  
+  //Portrait
+  .single_media_item-portrait{
+    padding-bottom: 145%; 
+  }
+  
+  //Square
+  .single_media_item-square{
+    padding-bottom: 100%; 
+  }
+  
 }
 
-//Post Media
-.media-post_media{
-  display: flex;
-  flex-wrap: wrap;
-	flex-direction: column;
-  height: 40vh;
-  min-height: 300px;
-  overflow: scroll;  
-
+//Media Mosaic
+.media-mosaic{
+  position: relative;
+  overflow: hidden;
+  padding-bottom: 33.33333333333%;
+  
   //Single Item
-  .post_media-item{
-    width: 60vh;
-    min-width: 451px;
-    height: 100%;
-    min-height: 280px;
-    margin-right: 1%;
+  .mosaic-item{
+    display: none;
+    position: absolute;
     
-    &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
-      width: 19vh;
-      height: 19vh;
-      min-width: 142.5px;
-      min-height: 142.5px;
-      .item-caption{
-        display: none;
+    //The Image
+    .item-image{
+      width: 100%;
+      height: 100%;        
+      .image-the_image{
+        object-fit: cover;  
+        width: 100%;
+        height: 100%;        
       }
-    }
-    &:nth-child(2), &:nth-child(4) {
-      margin-bottom: 2vh;
-      @media only screen and (max-height: 750px){
-        margin-bottom: 15px;
-      }
-    }
+    }      
     
     //Icons
     .item-play_icon, .item-pdf_icon{
@@ -290,14 +290,137 @@
     
     //Caption
     .item-caption{
-      font: $font-smallest_standard;
-      padding: $cell-smallest;
+      font: $font-smaller_standard;
+      padding: $cell-smaller/2;
       z-index: 2;
-      @media only screen and (max-width: $screen-smaller){
-    	  padding: $cell-smallest/2;
+      @media only screen and (max-width: $screen-tablet){
+    	  padding: $cell-smaller/2;
       }
     }
 
   }
+  
+  //Small Mosaic (via themeMosaic.js)
+  &.smallMosaic{
+
+    //Items
+    .mosaic-item{  
+      top: 0;
+      left: 0;
+    
+      //Large Items
+      &:nth-child(1) {
+        display: block;
+        width: 98%;
+        height: 98%;
+        margin: 1%;
+      }
+      
+    }    
+    
+  }
+
+  //Medium Mosaic (via themeMosaic.js)
+  &.mediumMosaic{
+
+    //Items
+    .mosaic-item{
+      top: 0;
+      width: 33.33333333%;
+      height: 100%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+    
+      //Medium Items
+      &:nth-child(1), &:nth-child(2), &:nth-child(3) {
+        display: block;
+      }
+      &:nth-child(1){
+        padding-left: 1%;
+        padding-right: .5%;
+      }
+      &:nth-child(2){
+        left: 33.33333333%;
+        padding-left: .5%;
+        padding-right: .5%;
+      }
+      &:nth-child(3){
+        left: 33.33333333%*2;
+        padding-left: .5%;
+        padding-right: 1%;
+      }
+      
+    }    
+    
+  }
+
+  //Large Mosaic (via themeMosaic.js)
+  &.largeMosaic{
+
+    //Items
+    .mosaic-item{
+      padding-top: 1%;
+  
+      //Small Items
+      &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+        display: block;
+        width: 16.666666665%;
+        height: 50%;
+        .item-caption{
+          display: none;
+        }
+      }
+      &:nth-child(2){
+        left: 33.33333333%;
+        top: 0; 
+        padding-left: .5%;
+        padding-right: .5%;
+      }
+      &:nth-child(3){
+        left: 49.99999999%;
+        top: 0; 
+        padding-left: .5%;
+        padding-right: .5%;
+      }
+      &:nth-child(4){
+        left: 33.33333333%;
+        bottom: 0; 
+        padding-left: .5%;
+        padding-right: .5%;
+        padding-bottom: 1%;
+
+      }
+      &:nth-child(5){
+        left: 49.99999999%;
+        bottom: 0; 
+        padding-left: .5%;
+        padding-right: .5%;
+        padding-bottom: 1%;
+      }
+
+      
+      //Medium Items
+      &:nth-child(1), &:nth-child(6) {
+        display: block;
+        width: 33.33333333%;
+        height: 100%;
+        padding-bottom: 1%;
+        top: 0;
+      }
+      &:nth-child(1){
+        left: 0;
+        padding-left: 1%;
+        padding-right: .5%;
+      }
+      &:nth-child(6){
+        left: 33.33333333%*2;
+        padding-left: .5%;
+        padding-right: 1%;
+      }
+      
+      
+    }    
+    
+  }  
   
 }

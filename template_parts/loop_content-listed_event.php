@@ -29,20 +29,18 @@
   ?>
   
   <div class="listed_event-text">    
-        
-    <?php 
-    //Event Labels 
-    if(get_the_terms( $post->ID, 'event_label'))
-      echo '<div class="text-event_labels">'.get_the_term_list( $post->ID, 'event_label', '', ', ' ).'</div>'; 
-    ?>
-      
     <a href="<?php the_permalink(); ?>" class="text-title"><?php the_title();?></a>
+    <div class="text-date_data">
+      
+      <?php
+      //Event Date/Time info or Event Days
+      if(get_field('event_date_info')){
+        echo get_field('event_date_info');
+      }else{
+        echo get_field('event_days');
+      }
+      ?>
     
-    <?php
-    //Event Date/Time info (Optional)
-    if(get_field('event_date_info'))
-      echo '<div class="text-date_info">'.get_field('event_date_info').'</div>';
-    ?>
-    
+    </div>
   </div>
 </div>
