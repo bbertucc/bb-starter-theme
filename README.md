@@ -48,4 +48,4 @@ Happy hacking!
 [DRY]:https://en.wikipedia.org/wiki/Don%27t_repeat_yourself
 [code guide]:http://codeguide.co/
 [@mdo]:https://github.com/mdo
-["Issues" tab]:https://github.com/4pt0/4pt0-theme/issues
+["Issues" tab]:https://github.com/bbertucc/bb-starter-theme/issues
