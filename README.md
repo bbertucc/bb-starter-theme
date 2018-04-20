@@ -1,5 +1,4 @@
-# "Nimbly"
-## My WordPress Starter Theme, Made for Segments
+# "Nimbly" - My WordPress Starter Theme
 
 This open repo contains my WordPress starter theme, which I call "Nimbly." This theme includes many of my standards after 10+ developing/designing websites.
 
