@@ -1,6 +1,7 @@
-# My WordPress Starter Theme, Made for Segments
+# "Nimbly"
+## My WordPress Starter Theme, Made for Segments
 
-This open repo contains my WordPress starter theme. This theme includes many of my standards after 10+ developing/designing websites.
+This open repo contains my WordPress starter theme, which I call "Nimbly." This theme includes many of my standards after 10+ developing/designing websites.
 
 This theme is a bit of an evolution of [a gist] I wrote about organizing WordPress theme code. 
 
